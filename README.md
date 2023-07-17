@@ -1,3 +1,2 @@
 # Sesac
-
-작성자: chr0ckbean 
+작성자: chr0ckbea

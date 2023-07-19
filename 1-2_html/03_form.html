@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tags</title>
+    <style>
+        body{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Tags</h1>
+    <!-- form : 사용자로부터 입력 받는 요소(input, textarea, select, etc..) 감싸는 태그
+                form tag attr: action, method - 서버 관련  -->
+    <form>
+        <!-- 모든 input type - name 가질 수 있음. 백엔드 관련 -->
+        <!-- email: <input type="text" placeholder="input tag" > <br> -->
+
+        <!-- 웹 접근성에 적합 -->
+        <!-- label for 속성 == input id for Focusing -->
+        <label for="eMail">email: </label>
+        <input type="email" placeholder="input tag" id="eMail" >
+        <input type="text" disabled>
+
+        <textarea cols="30" rows="10"></textarea>
+        <input type="color" id="">
+        <input type="range" name="" id="">
+        <input type="file" name="" id="">
+        <input type="number" name="" id="">
+        <input type="datetime-local" name="" id=""> <br><br>
+
+        <h3>취미를 고르시오</h3>
+        <!-- name: 서버에 클라이언트 입력 카테고리 값 넘길 때 사용 -->
+        <!-- value: 서버에 클라이언트 입력 값 넘길 때 사용 -->
+        <input type="checkbox" name="hobby" value="layDown">눕기
+        <input type="checkbox" name="hobby" value="sleep">자기
+        <input type="checkbox" name="hobby" value="jelly" checked>젤리 먹기
+        <input type="checkbox" name="hobby" value="game">게임 하기
+
+        <h3>제일 귀여운 건?</h3>
+        <!-- name: 독립적 선택 위해 name 쓰기 -->
+        <!-- id: == label for Value: txt 클릭 시 버튼 체크 위해 -->
+        <input type="radio" name="cuteness" value="jjanggu" id="jjanggu"><label for="jjanggu">짱구</label>
+        <input type="radio" name="cuteness" value="siro" id="siro"><label for="siro">흰둥이</label>
+        <input type="radio" name="cuteness" value="misun" id="misun"><label for="misun">봉미선</label>
+        <br><br>
+
+        <input type="button" value="btn1">
+        
+        <!-- 차이 O-->
+        <input type="submit" value="제출">
+        <button type="제출">제출</button>
+
+        <select name="jelly">
+            <optgroup label="sweet"> 
+                <!-- group 지정 시 optgroup 사용 -->
+                <option value="haribo">haribo</option>
+                <option value="maigumy">maigumy</option>
+            </optgroup>
+            <option value="soda" disabled>soda</option>
+            <option value="trolly" selected>trolli</option>
+        </select>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tag 종류</title>
+</head>
+<body>
+    <h1>태그 종류에 대해 배워보자</h1>
+    <h2>제목2</h2>
+    <h3>제목3</h3>
+    <h4>제목4</h4>
+    <h5>제목5</h5>
+    <h6>제목6</h6>
+    
+    <p>p tag for content <br> content2 </p>
+    <br>
+    <p>content3 <br> <br> content4 </p><br>
+    <hr>
+
+    <h3>ol list</h3>
+    <ul type="square"> <!-- type: disc(default), square, circle, none -->
+        <li><strong>순서</strong></li>
+        <li><i>없</i> <del>는</del></li>
+        <li><u>목</u> <em> 록</em></li>
+    </ul><br>
+
+    <h3>ol list</h3>
+    <ol type="1" start="4" reversed>
+        <!-- type: 1(default), a, A, i, I  -->
+        <!-- start: 시작 번호, reversed: 역순으로 -->
+        <li>순서</li>
+        <li>있는</li>
+        <li>목록</li>
+    </ol>
+    <hr>
+
+    <!-- 목록 태그에 중첩 사용 -->
+    <h3>내가 좋아하는 음식</h3>
+    <ul>
+        <li>양식</li>
+            <ul>
+                <li>스테이크</li>
+                <li>수제버거</li>
+                <li>파스타</li>
+            </ul>
+        <li>일식</li>
+            <ul>
+                <li>스시</li>
+                <li>우동</li>
+                <li>곤약젤리</li>
+            </ul>
+        <li>간식</li>
+            <ul>
+                <li>마이쮸</li>
+                <li>하리보</li>
+                <li>트롤리</li>
+                <li>케이크</li>
+                <li>타르트</li>
+                <li>초콜렛</li>
+            </ul>
+    </ul>
+
+    <hr>
+    <h1>img & a tag</h1>
+    <img width="700px" height="400px" src="./img/img.jpg" alt="cuteGuy">
+    <img width="700px" height="400px" src="https://image.tving.com/upload/cms/caip/CAIP0400/P000224928.png/dims/resize/1280" alt="cuteGuy">
+    <!-- <img width="700px" height="400px" src="C:\Users\user\Desktop\Sesac-Ydp-5\1-2_html\img\img.jpg" alt="cuteGuy"> -->
+    <!-- 절대경로는 live server에선 안 열림 -->
+
+    <hr>
+    <a href="https://google.com" target="_blank">_blank</a>
+    <a href="https://google.com" target="_self">_self</a>
+    <a href="https://google.com" target="_blank" title="여기에 hover 시 나타남">_self</a>
+    <a href="./practice01_cafe.html">카페 html 파일로 이동</a>
+    <br>
+</body>
+</html>

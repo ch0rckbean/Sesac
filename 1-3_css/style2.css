@@ -1,0 +1,31 @@
+/* 클래스, 아이디 차이 
+    - 클래스:그룹 
+    - 아이디:고유해야 
+ex: className- 여러 요소 사용 가능
+    id- 한 요소에만 사용해야
+*/
+
+
+/* 전체 선택자 */
+*{
+    color: navy;
+}
+/* 태그 선택자 */
+h1{
+    background-color: palevioletred;
+}
+/* .클래스명: 클래스 선택자 */
+.second{
+    background-color: aquamarine;
+}
+/* #아이디명: 아이디 선택자 */
+#first{
+    background-color: aqua;
+}
+
+.small{
+    font-size: small;
+}
+.big{
+    font-size: large;
+}

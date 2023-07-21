@@ -1,0 +1,28 @@
+img{
+    width: 500px;
+    height: 400px;
+}
+body > img:nth-child(1){
+    position: relative;
+    left: 200px;
+    top: 300px;
+    transform: rotateY(20deg);
+    transform: skewY(20deg);
+    z-index: 4;
+}
+body > img:nth-child(2){
+    position: relative;
+    left: 150px;
+    top: 300px;
+    /* transform: rotate(20deg); */
+    transform: skewY(20deg);
+    z-index: 3;
+}
+body > img:nth-child(3){
+    position: relative;
+    left: 80px;
+    top: 250px;
+    /* transform: rotate(30deg); */
+    transform: skewY(20deg);
+    z-index: 2;
+}

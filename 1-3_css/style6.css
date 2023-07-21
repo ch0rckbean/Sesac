@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+div{
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+}
+
+/* position */
+    /* default:inline - 왼 => 오 / block - 위 => 아래 */
+.position-static{
+    position: static; 
+    background-color: palevioletred;
+}
+    /* 상대 위치: 원래 있어야 하는 위치 기준 top/right/bottom/left 만큼 이동 */
+.position-relative{
+    position: relative;
+    left: 200px;
+    background-color: aquamarine;
+}
+    /* 절대 위치: position 속성 갖는 제일 가까운 조상 기준. 없다면 body기준
+        => 특정 요소 기준 삼아 top/right/bottom/left 만큼 이동  */
+.position-absolute{
+    position: absolute;
+    top: 50px;
+    left:40px;
+    background-color: gold;
+}   
+    /* viewport(브라우저 화면 전체) 기준 특정 위치 고정: 스크롤 돼도 안 움직임 */
+.position-fixed{
+    position: fixed;
+    top: 0;
+    right: 10%;  
+    background-color: coral;
+}

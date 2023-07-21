@@ -1,0 +1,18 @@
+/* overflow */
+/* overflow-x: 수평 방향 넘칠 때 처리 */
+/* overflow-y: 수직 방향 넘칠 때 처리 */
+
+.box{
+    background-color: skyblue;
+    width: 400px;
+    height: 100px;
+    /* overflow: hidden;
+    overflow: auto;
+    overflow: scroll;
+    overflow: visible; */
+    
+    /* overflow-y: visible; */
+    /* overflow-y: hidden; */
+    /* overflow-y: scroll; */
+    /* overflow-y: auto; */
+}

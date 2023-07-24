@@ -1,0 +1,16 @@
+.txt{
+    position: relative;
+    animation-name: mv;
+    animation-duration: 2s;
+}
+
+@keyframes mv {
+    0%{
+        margin-left: 100%;
+        width: 200%;
+    }
+    100%{
+        margin-left: 0%;
+        width: 100%;
+    }
+}

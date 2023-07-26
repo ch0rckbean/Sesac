@@ -123,5 +123,5 @@ let engScore = "88";
 let avgScore = (Number(mathScore) + Number(engScore)) / 2;
 console.log(avgScore);
 
-console.log(Number(undefined), typeof Number(undefined));
-console.log(Number(null), typeof Number(null));
+console.log(Number(undefined), typeof Number(undefined)); // NaN number
+console.log(Number(null), typeof Number(null)); //0 number

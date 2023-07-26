@@ -85,7 +85,7 @@ console.log(arr2);
 console.log(arr2.join(""));
 console.log(arr2.join("-"));
 
-console.log("hello".split("").reverse.join());
+console.log("hello".split("").reverse().join());
 console.log("hello".split(""));
 console.log("hello".split("").reverse());
 console.log("hello".split("").reverse().join());

@@ -40,9 +40,7 @@
     - animation-delay: 요소(element)가 로드된 후, 언제 애니메이션을 시작할지 결정 (단위: s)
     - animation-iteration-count: 애니메이션 반복 횟수 (default: 1, infinite: 무한 반복)
     - animation-timing-function: 중간 상태들의 전환을 어떤 시간 간격으로 진행할지 지정
-        - linear, ease, ease-in, ease-out, ease-in-out 등
-    - animation-direction: 애니메이션 종류 후 반복될 때 진행방향 지정
-    -   normal, reverse, alternate, alternate-reverse 
+    - linear, ease, ease-in, ease-out, ease-in-out 등
     - animation-direction: 애니메이션 종류 후 반복될 때 진행방향 지정
     - normal, reverse(반대 방향), alternate(반복될때마다 방향 바꿔줌), alternate-reverse 
     - alternate: from -> to 방향으로 애니메이션 진행 -> (다음 회차) to -> from 방향을 바꿔가며 반복 

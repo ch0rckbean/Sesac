@@ -85,7 +85,89 @@ console.log(arr2);
 console.log(arr2.join(""));
 console.log(arr2.join("-"));
 
-console.log("hello".split("").reverse().join());
+console.log("hello".split("").reverse().join(""));
 console.log("hello".split(""));
-console.log("hello".split("").reverse());
-console.log("hello".split("").reverse().join());
+console.log("hello".split("").reverse()); //quokkarabbitpuppyhamster
+console.log("hello".split("").reverse().join("-")); //quokka-rabbit-puppy-hamster
+
+/////////////////////////////
+//배열에서 반복문 사용하기!
+//순회
+// - 기본 for문
+// - for of 문
+// - forEach()메서드
+const arr3 = [1, 2, 5, 6, 7];
+const alphabets = ["a", "b", "c", "d"];
+
+for (let a = 0; a < arr3.length; a++) {
+  console.log(arr3[a]);
+}
+
+for (let alpha of alphabets) {
+  console.log(alpha);
+}
+
+alphabets.forEach(function (alpha) {
+  // alpha: currentValue를 의미. 반복하고 있는 현재 요소
+  console.log(alpha);
+});
+
+alphabets.forEach(function (alpha, idx) {
+  // alpha: currentValue를 의미. 반복하고 있는 현재 요소
+  // idx: currentValue의 인덱스(위치)
+  console.log(alpha, idx);
+});
+
+alphabets.forEach(function (alpha, idx, arr) {
+  // alpha: currentValue를 의미. 반복하고 있는 현재 요소
+  // idx: currentValue의 인덱스(위치)
+  // arr: forEach를 호출한 배열
+  console.log(alpha, idx, arr);
+});
+
+const nums = [1, 1, 22, 15, 33];
+let sum = 0;
+let sum2 = 0;
+let sum3 = 0;
+
+for (let num of nums) {
+  sum += num;
+  console.log(sum);
+}
+
+nums.forEach(function (cur, idx, arr) {
+  sum2 += cur;
+  console.log(sum2, idx, arr);
+});
+
+nums.forEach((num) => {
+  sum3 += num;
+  console.log(sum3);
+});
+
+console.log("----------------------");
+//map, filter, find 메서드
+const arr4 = [1, 2, 3, 4, 5, 6];
+
+//map(): 새로운 배열 반환 !=forEach
+// let arr4_res = arr4.map(function (a) {
+//   return (a *= 2);
+// });
+let arr4_res = arr4.map((a) => a * 3);
+console.log(`arr4_res: ${arr4_res}`);
+
+//filter(): 주어진 함수의 테스트(조건) 통과하는 요소 모아
+// (조건 통과하면 요소 유지, 미통과하면 요소 버림) "새로운 배열" 반환
+let ft_res = arr4.filter((e) => e > 2);
+console.log(ft_res); //3,4,5,6
+
+//find (): 특정 조건 만족하는 첫번째 요소 반환
+const findRes = arr4.find((e) => e > 2);
+console.log(findRes);
+
+//퀴즈
+const words = ["dog", "cat", "rabbit", "apple", "wow"];
+let res1 = words.filter((e) => e.length > 3);
+console.log(res1);
+let res2 = words.filter((e) => e.includes("a"));
+console.log(res2);

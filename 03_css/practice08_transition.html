@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice08_transition</title>
+    <link rel="stylesheet" href="./practice08_transition.css">
+    <style>
+        h1{
+            font-weight: bold;
+        }
+        #black{
+            background-color: black;
+            color: white;
+            width: 100px;
+            height: 100px;
+            overflow: scroll;
+        }
+        #black:hover{
+            transition-delay: 0.5;
+            transition: all 1s;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transition 실습</h1>
+    <div id="black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nemo perspiciatis natus facilis similique voluptatibus animi ex repudiandae atque, numquam, sint, dolore voluptates nostrum. Provident excepturi adipisci animi reprehenderit itaque.</div>
+</body>
+</html>

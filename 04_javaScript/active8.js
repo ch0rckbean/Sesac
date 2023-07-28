@@ -98,15 +98,15 @@ console.log("hello".split("").reverse().join("-")); //quokka-rabbit-puppy-hamste
 // - forEach()메서드
 const arr3 = [1, 2, 5, 6, 7];
 const alphabets = ["a", "b", "c", "d"];
-
+// 1.기본 for문
 for (let a = 0; a < arr3.length; a++) {
   console.log(arr3[a]);
 }
-
+// 2.for of 문
 for (let alpha of alphabets) {
   console.log(alpha);
 }
-
+// 3.forEach()메서드
 alphabets.forEach(function (alpha) {
   // alpha: currentValue를 의미. 반복하고 있는 현재 요소
   console.log(alpha);
@@ -125,6 +125,7 @@ alphabets.forEach(function (alpha, idx, arr) {
   console.log(alpha, idx, arr);
 });
 
+//연습
 const nums = [1, 1, 22, 15, 33];
 let sum = 0;
 let sum2 = 0;
@@ -149,7 +150,7 @@ console.log("----------------------");
 //map, filter, find 메서드
 const arr4 = [1, 2, 3, 4, 5, 6];
 
-//map(): 새로운 배열 반환 !=forEach
+//map(): 결과를 모아 새로운 배열 반환 !=forEach !=filter(요소 배열 반환)
 // let arr4_res = arr4.map(function (a) {
 //   return (a *= 2);
 // });
@@ -167,7 +168,21 @@ console.log(findRes);
 
 //퀴즈
 const words = ["dog", "cat", "rabbit", "apple", "wow"];
+// 1. 글자 수가 3개 초과인 단어만 필터링
 let res1 = words.filter((e) => e.length > 3);
 console.log(res1);
+// 2. 글자에 'a' 문자가 포함되어 있는 단어만 필터링
 let res2 = words.filter((e) => e.includes("a"));
 console.log(res2);
+
+// /////////////////////////////////
+//for in 반복문
+// 객체의 key를 반복할 수 있는 구문
+const me = {
+  name: "sean",
+  gender: "f",
+  hobby: "movie",
+};
+for (let key in me) {
+  console.log(key, me[key]); //key, value 출력
+}

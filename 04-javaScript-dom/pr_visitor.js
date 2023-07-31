@@ -3,6 +3,8 @@ const visitor = document.getElementById("visitor");
 const content = document.getElementById("content");
 const post = document.getElementById("post");
 const tb = document.getElementById("tb");
+// const tbl = document.getElementById("table");
+//tbody, table 중 어느 것에 추가해도 동작
 
 post.addEventListener("click", Post);
 function Post() {
@@ -15,7 +17,7 @@ function Post() {
   let time = `${year}-${month}-${date} ${hour} : ${min}`;
 
   addText = `<tr><td>${num}</td><td>${visitor.value}</td><td>${content.value}</td><td>${time}</td></tr>`;
-  tb.innerHTML += addText;
+  tbl.innerHTML += addText;
   visitor.value = "";
   content.value = "";
 }

@@ -1,0 +1,19 @@
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: paleturquoise;
+}
+.my_center {
+  background-color: palevioletred;
+  width: 200px;
+}
+.my_width {
+  background-color: lightgreen;
+}
+/* .w_30 {
+  width: 30px;
+} */
+.my_height {
+  background-color: aquamarine;
+}

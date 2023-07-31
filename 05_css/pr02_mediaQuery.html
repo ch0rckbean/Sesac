@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .sq {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        margin: 50px;
+      }
+      body {
+        display: flex;
+        flex-direction: row;
+      }
+      @media (min-width: 700px) {
+        body {
+          flex-direction: column;
+        }
+        .sq {
+          background-color: skyblue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sq"></div>
+    <div class="sq"></div>
+    <div class="sq"></div>
+  </body>
+</html>

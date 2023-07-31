@@ -1,0 +1,18 @@
+.sq {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  margin: 50px;
+}
+body {
+  display: flex;
+  flex-direction: row;
+}
+@media (min-width: 700px) {
+  body {
+    flex-direction: column;
+  }
+  .sq {
+    background-color: skyblue;
+  }
+}

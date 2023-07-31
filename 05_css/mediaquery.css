@@ -1,0 +1,50 @@
+.header {
+  background-color: palegoldenrod;
+  height: 120px;
+}
+.main {
+  background-color: aqua;
+  display: flex;
+}
+.aside {
+  background-color: hotpink;
+  width: 20%;
+}
+.section {
+  background-color: cornflowerblue;
+  width: 80%;
+}
+.footer {
+  background-color: lime;
+}
+@media (max-width: 480px) {
+  /* viewport width가 480px 이하일 때 */
+  .header {
+    height: 60px;
+  }
+  /* .aside {
+    display: none;
+  } */
+  .main {
+    /* flex-direction: column; */
+    flex-direction: column-reverse;
+  }
+  .section {
+    width: 100%;
+  }
+  .aside {
+    width: 100%;
+  }
+}
+
+@media screen and (orientattion: landscape) {
+  body {
+    background-color: bisque;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    background-color: tomato;
+  }
+}

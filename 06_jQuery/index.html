@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- jQuery CDN -->
+    <!-- https://releases.jquery.com/
+    - uncompressed, minified : 일반 패키지
+    - uncompressed : 압축되어 있지 않은 공백과 들여쓰기가 되어 있는 형태
+    - minified : 압축된 형태로 한 줄로 와다다 쓰여 있는 형태 ( 용량이 더 작음 )
+    - slim, slim minified : slim 패키지 ( 일반 패키지에서 몇몇 기능들이 제거된 형태 ) -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./active.js"></script>
+  </head>
+  <body>
+    <h1>jQuery</h1>
+    <div id="div1">안녕하세요</div>
+    <button type="button" onclick="submitJs()">변환 js</button>
+    <button type="button" onclick="submitJquery()">변환 jQuery</button>
+
+    <ul>
+      <li class="jelly">하리보</li>
+      <li class="jelly">트롤리</li>
+      <li class="jelly">새콤달콤</li>
+      <li class="jelly">마이쮸</li>
+    </ul>
+  </body>
+</html>

@@ -29,6 +29,7 @@ console.log(jellyJquery); //jQuery 객체
 // li 태그들이 아닌 노드 리스트가 잡히므로 typerror
 // 유사 객체에 이벤트 리스너 추가하려 했기 때문 => 반복문 사용
 
+// script에 defer 추가하기 || body 끝 줄에 두기
 jellyJs.forEach((jelly) => {
   jelly.addEventListener("click", function () {
     this.style.color = "red";

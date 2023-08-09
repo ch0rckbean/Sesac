@@ -14,10 +14,13 @@ const server = http.createServer(function (request, response) {
   /*html 파일 불러오기 */
   //예외처리 try catch 구문
   try {
+    // 정상 동작
     // const data = fs.readFileSync("./index.html");
+    // response.writeHead(200, { "content-type": "text/html; charset=utf8" });
+
     // 퀴즈: 404.html 만들어서 404.html로 응답하기
     const data = fs.readFileSync("./404.html");
-    response.writeHead(200, { "content-type": "text/html; charset=utf8" });
+    response.writeHead(404, { "content-type": "text/html; charset=utf8" });
     response.write(data);
     response.end();
   } catch (error) {
@@ -35,7 +38,7 @@ server.on("connection", function (request, response) {
   console.log("Client Connected");
 });
 
-//서버 실행
+//서버 실행(열림)
 server.listen(PORT, function () {
   console.log(`${PORT} listened`);
 });

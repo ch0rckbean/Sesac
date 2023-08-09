@@ -1,0 +1,12 @@
+{
+  "name": "08_npm",
+  "version": "1.0.0",
+  "description": "npm 연습 프로젝트- 웹서버 만들기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

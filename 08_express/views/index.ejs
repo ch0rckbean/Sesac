@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  ejs에서 또 다른 ejs 불러옴 -->
     <%- include("./includes/head",{title:"Home"}) %>
+    <link rel="stylesheet" href="/public/css/home.css">
   </head>
   <body>
     <%-include("./includes/header") %>
@@ -21,10 +23,13 @@
     <% } %>
     <span><%=jelly.name%></span>
     <span><%=jelly.flavor%></span> <hr>
+    <span><%=snack%> 마시개다</span>
     <br>
+    <!-- true 자체가 출력 됨 -->
     <h5>
     <%= isLogin %>
   </h5>
+  <!-- 변수지만 html 내에 작성하는 것이 아니므로 '=' 안 씀 위랑 구분해보기 -->
     <% if (!isLogin) { %>
       Logged in
       <% } else { %>

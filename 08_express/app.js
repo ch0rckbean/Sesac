@@ -5,13 +5,26 @@ const PORT = 8080;
 app.set("view engine", "ejs"); //express 템플릿 엔진 종류(ejs) 등록
 app.set("views", "./views"); //템플릿 엔진 파일을 저장할 위치 등록
 
-// app.get(경로, 해당 경로로 들어왔을 때 실행할 함수)
+//(임시) DB에서 가져온 회원 정보 (id,pw)
+const idFromDB = "Grape";
+const pwFromDB = "1234shine";
+
+/* app.get(경로, 해당 경로로 들어왔을 때 실행할 함수)*/
 // '/' : root경로. 서버주소, 포트번호(localhost:8080)
 app.get("/", function (req, res) {
   //send(x): 응답으로 x 보냄
   //render(ejs_filename): 응답으로 ejs_file 이름 찾아서 해당 파일 내용 보냄
   //res.send("<h1>Hello Express!</h1>");
-  res.render("index");
+  res.render("index", {
+    userId: idFromDB,
+    userPw: pwFromDB,
+    btns: ["샤인", "머스캣", "마싯져"],
+    jelly: {
+      name: "Haribo",
+      flavor: "과일쨈맛",
+    },
+    isLogin: true,
+  });
 });
 
 // "./sesac" 경로로 들어왔을 때 "새싹 영등포 캠퍼스 5기 수업중" 메시지 보이기
@@ -25,7 +38,6 @@ app.get("/sesac", function (req, res) {
 app.get("/login", function (req, res) {
   res.render("login");
 });
-
 // 2. /register 경로로 요청이 들어오면 회원가입 페이지(ejs)를 응답
 app.get("/register", function (req, res) {
   res.render("register");

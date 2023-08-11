@@ -3,16 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main Page</title>
+    <%- include("./includes/head",{title:"Home"}) %>
   </head>
   <body>
+    <%-include("./includes/header") %>
+    <!-- <header>헤더</header> -->
     <h1>Hello Express with ejs !!</h1>
-    <p>안녕하세요 ~.~</p>
+    <p>안녕하세요 ~.~ <%=userId%>님!</p>
+    <p>당신의 비번 <%=userPw%>을 숨기세요 ><</p>
+    <a href="./login">Login</a>
+    <a href="./register">Sign In</a>
     <hr />
-    <% for(let i=0; i<5; i++) { %> %>
-    <div><%= i%></div>
+    <% for(let i=0; i<btns.length; i++) { %>
+    <div>
+      <%= i%> <button style="background-color: plum"><%=btns[i]%></button>
+    </div>
     <% } %>
-    <a href="./login.ejs">Login</a>
-    <a href="./register.ejs">Sign In</a>
+    <span><%=jelly.name%></span>
+    <span><%=jelly.flavor%></span> <hr>
+    <br>
+    <h5>
+    <%= isLogin %>
+  </h5>
+    <% if (!isLogin) { %>
+      Logged in
+      <% } else { %>
+      Not Logged In 
+      <% } %>
   </body>
 </html>

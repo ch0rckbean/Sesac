@@ -81,7 +81,7 @@ console.log(c);
 console.log(d);
 console.log(e);
 
-//spreadinobject
+//spread in object
 const chip = {
   base: "chip",
   company: "mola",
@@ -254,7 +254,7 @@ class Circle extends Shape {
     this.radius = radius;
   }
   getArea() {
-    return `이 원의 넓이는 ${this.radius ** 2 * 3.14}입니다.`;
+    return `이 원의 넓이는 ${this.radius ** 2 * Math.PI}입니다.`;
   }
 }
 const c1 = new Circle(3, 3, 3);

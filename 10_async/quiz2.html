@@ -48,7 +48,7 @@
         return new Promise(function (resolve, reject) {
           setTimeout(function () {
             txt = "back";
-            console.log("back");
+            console.log(txt);
             resolve(txt);
           }, 1000);
         });
@@ -58,6 +58,7 @@
         return new Promise(function (resolve, reject) {
           setTimeout(function () {
             msg = "callback hell";
+            console.log(msg);
             resolve(msg);
           }, 1000);
         });

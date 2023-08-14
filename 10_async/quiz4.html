@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>콜백을 Promise로</h1>
+    <script>
+      // 1. 1초 뒤에 body 태그의 색상을 빨간색 변경 (setTimeout)
+      // 2. 1초 뒤에 body 태그의 색상을 빨 -> 1초 뒤 주 -> ... -> 1초 뒤에 파란색
+      function goRed() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            document.body.style.backgroundColor = "red";
+            resolve();
+          }, 1000);
+        });
+      }
+
+      function goOrange() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            document.body.style.backgroundColor = "orange";
+            resolve();
+          }, 1000);
+        });
+      }
+
+      function goYellow() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            document.body.style.backgroundColor = "yellow";
+            resolve();
+          }, 1000);
+        });
+      }
+
+      function goGreen() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            document.body.style.backgroundColor = "green";
+            resolve();
+          }, 1000);
+        });
+      }
+      function goBlue() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            document.body.style.backgroundColor = "blue";
+            resolve();
+          }, 1000);
+        });
+      }
+
+      goRed().then(goOrange).then(goYellow).then(goGreen).then(goBlue);
+    </script>
+  </body>
+</html>

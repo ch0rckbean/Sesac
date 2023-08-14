@@ -37,7 +37,7 @@ promise1(flag)
   .catch((error) => console.log(error));
 
 /////////////////////////////
-/* 실습: 
+// 실습:
 function goMart() {
   console.log("마트에 가서 어떤 음료를 살지 고민한다.");
 }
@@ -69,7 +69,6 @@ let price;
 goMart();
 pickDrink().then(pay).catch(noPay);
 // pay();
-*/
 
 //////////////////
 // 3. Promise Chaining
@@ -77,7 +76,6 @@ pickDrink().then(pay).catch(noPay);
 // sub(mul(add(4 , 3), 2) - 1): add => mul => sub
 
 // case1. 콜백함수로 처리한다면?
-/* 
 function add(n1, n2, callback) {
   setTimeout(function () {
     const result = n1 + n2;
@@ -95,7 +93,7 @@ function mul(n, callback) {
 function sub(n, callback) {
   setTimeout(function () {
     const result = n - 1;
-    callback(result);  //마지막 순서인데 왜 callback 호출?
+    callback(result); //마지막 순서인데 왜 callback 호출?
   }, 500);
 }
 
@@ -108,7 +106,6 @@ add(4, 3, function (x) {
     });
   });
 });
-*/
 
 // case2: Promise Chaining 적용
 // - 순차적 작업 가능 + 콜백지옥 탈출

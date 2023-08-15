@@ -49,7 +49,6 @@ function pay(product, price) {
 
 // let product;
 // let price;
-
 goMart();
 pickDrink(pay);
 

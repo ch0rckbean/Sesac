@@ -1,22 +1,22 @@
-// async function f1() {
-//   return 1;
-// }
-// async function f2() {
-//   return Promise.resolve(1);
-// }
+async function f1() {
+  return 1;
+}
+async function f2() {
+  return Promise.resolve(1);
+}
 
-// console.log("1 >> ", f1());
-// // Promise { 1 } : async 키워드가 붙어 있으므로 Promise 객체 반환
-// f1().then(function (result) {
-//   // 1만 출력하려면
-//   console.log("2 >> ", result);
-// });
+console.log("1 >> ", f1());
+// Promise { 1 } : async 키워드가 붙어 있으므로 Promise 객체 반환
+f1().then(function (result) {
+  // 1만 출력하려면
+  console.log("2 >> ", result);
+});
 
-// console.log("3 >> ", f2()); // Promise { <pending> }
-// f2().then(function (result) {
-//   //1 출력하려면
-//   console.log("4 >> ", result);
-// });
+console.log("3 >> ", f2()); // Promise { <pending> }
+f2().then(function (result) {
+  //1 출력하려면
+  console.log("4 >> ", result);
+});
 // => 1 3 2 4 순 실행
 
 //////////////////////

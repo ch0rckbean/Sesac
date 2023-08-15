@@ -25,7 +25,9 @@ app.get("/getInfo", (req, res) => {
   console.log(req.query);
   res.render("getInfo", { title: "getInfo", userInfo: req.query });
 });
-
+app.post("/postInfo", (req, res) => {
+  res.render("postInfo", { title: "postInfo", userInfo: req.body });
+});
 app.listen(PORT, () => {
   console.log("Server Opened!");
 });

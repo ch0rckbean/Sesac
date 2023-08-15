@@ -8,7 +8,6 @@ app.set("views", "./views");
 //미들웨어
 // 요청(req),응답(res)의 중간에서 작업하는 코드
 // app.use()
-
 //req.body 객체 해석하도록 body-parser 미들웨어 등록
 app.use(express.urlencoded({ extended: true })); //post 요청으로 들어오는 모든 형식의 데이터 파싱
 app.use(express.json()); //json 형식으로 데이터 주고 받음

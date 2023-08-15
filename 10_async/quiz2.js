@@ -1,3 +1,4 @@
+////////// Promise로 바꾸기
 function call(name, cb) {
   setTimeout(function () {
     console.log(name);

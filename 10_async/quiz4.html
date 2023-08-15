@@ -54,7 +54,15 @@
         });
       }
 
-      goRed().then(goOrange).then(goYellow).then(goGreen).then(goBlue);
+      // goRed().then(goOrange).then(goYellow).then(goGreen).then(goBlue);
+
+      goRed()
+        .then(function (result) {
+          return goOrange();
+        })
+        .then((result) => goYellow())
+        .then((result) => goGreen())
+        .then((result) => goBlue());
     </script>
   </body>
 </html>

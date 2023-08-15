@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+  </head>
+  <body>
+    <h1>Review</h1>
+    <h2>GET</h2>
+    <form action="/getForm" method="get">
+      <input type="text" name="id" />
+      <input type="password" name="pw" />
+      <button>제출</button>
+    </form>
+
+    <h2>POST</h2>
+    <form action="/postForm" method="post">
+      <input type="text" name="id" />
+      <input type="password" name="pw" />
+      <button>제출</button>
+    </form>
+    <h1>getInfo</h1>
+    <form action="/getInfo" method="get">
+      이름
+      <input type="text" name="name" id="" placeholder="NAME" />
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" id="" value="Female" />여자
+        <input type="radio" name="gender" id="" value="Male" />남자
+      </fieldset>
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="year" id="">
+          <option value="2010">2010</option>
+          <option value="2020">2020</option>
+          <option value="2030">2030</option>
+        </select>
+        <select name="month" id="">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <select name="date" id="">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" name="int" value="tr" />여행
+        <input type="checkbox" name="int" value="fa" />패션
+        <input type="checkbox" value="fo" name="int" />음식
+      </fieldset>
+      <button>회원가입</button>
+    </form>
+  </body>
+</html>

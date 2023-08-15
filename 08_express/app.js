@@ -3,7 +3,7 @@ const app = express(); //express 실행 해 app에 할당
 const PORT = 8080;
 
 app.set("view engine", "ejs"); //express 템플릿 엔진 종류(ejs) 등록
-app.set("views", "./views"); //템플릿 엔진 파일을 저장할 위치 등록
+app.set("views", "./views"); //템플릿 엔진 파일을 저장할 위치 등록. 경로 주의!!!!!
 //== app.use("/views", express.static(__dirname + "/views"));
 
 /* static 미들웨어 등록*/

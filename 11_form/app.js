@@ -3,7 +3,7 @@ const app = express();
 const PORT = 8000;
 
 app.set("view engine", "ejs");
-app.set("/views", "views");
+app.set("views", "./views");
 
 //미들웨어
 // 요청(req),응답(res)의 중간에서 작업하는 코드

@@ -29,13 +29,6 @@ app.get("/getForm", (req, res) => {
   res.render("result", { title: "GET Request", userInfo: req.query });
   // == userInfo: { id: 'ZZanggu', pw: 'q' }
 });
-
-//get으로 정보 입력받기
-app.get("/getInfo", (req, res) => {
-  console.log(req.query);
-  res.render("getInfo", { title: "GET Info", userInfo: req.query });
-});
-
 //POST "/postForm" => 임의의 메시지 전송
 // post 방식은 클라이언트에서 보낸 데이터가 req.body에 저장
 app.post("/postForm", (req, res) => {
@@ -46,7 +39,14 @@ app.post("/postForm", (req, res) => {
   // == userInfo: { id: 'ZZanggu', pw: 'q' }
 });
 
-//실습: post로 정보받기
+//실습1: get으로 정보 입력받기
+app.get("/getInfo", (req, res) => {
+  console.log(req.query);
+  res.render("getInfo", { title: "GET Info", userInfo: req.query });
+});
+
+//실습2: post로 정보받기
+// a 태그를 통해 GET이 되면 다음 과정을 통해 해당 페이지 렌더
 app.get("/postInfo", (req, res) => {
   res.render("postInfo", { title: "post 실습" });
 });

@@ -46,6 +46,14 @@ app.post("/postForm", (req, res) => {
   // == userInfo: { id: 'ZZanggu', pw: 'q' }
 });
 
+//실습: post로 정보받기
+app.get("/postInfo", (req, res) => {
+  res.render("postInfo", { title: "post 실습" });
+});
+app.post("/postResult", (req, res) => {
+  res.render("postResult", { title: "POST Result", userInfo: req.body });
+});
+
 app.listen(PORT, () => {
   console.log("Server is Opened");
 });

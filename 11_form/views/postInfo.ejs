@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <form action="/postResult" method="post">
+      이름 <input type="text" name="name" id="" required/ />
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" required value="Male" />남자
+        <input type="radio" name="gender" required value="Female" />여자
+      </fieldset>
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="year" id="">
+          <option value="2000">2000</option>
+          <option value="2010">2010</option>
+          <option value="2020">2020</option>
+        </select>
+        <select name="month" id="">
+          <% for (let i=1; i<=12; i++){ %>
+          <option value="<%= i%>"><%= i%></option>
+          <%}%>
+        </select>
+        <select name="date" id="">
+          <%for (let i=1; i<=31; i++){ %>
+          <option value="<%= i %>"><%= i %></option>
+          <%}%>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" value="travel" name="int" />여행
+        <input type="checkbox" value="fashion" name="int" />패션
+        <input type="checkbox" value="food" name="int" />음식
+      </fieldset>
+      <fieldset>
+        <legend>선택</legend>
+        좋아하는 색상
+        <!-- <select name="color" id="">
+          <option value="green">green</option>
+          <option value="purple">purple</option>
+          <option value="blue">blue</option>
+        </select> -->
+        <input type="color" name="color" />
+        좋아하는 숫자<input type="number" name="num" />
+      </fieldset>
+      <button>회원가입</button>
+    </form>
+  </body>
+</html>

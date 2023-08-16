@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Result</title>
+    <title><%=title%></title>
     <style>
+      body {
+        background-color: whitesmoke;
+      }
       span {
         color: aqua;
         background-color: slateblue;
@@ -13,8 +16,14 @@
     </style>
   </head>
   <body>
-    <h1><%= title %> 폼 결과 확인하기</h1>
-    <div><span><%= userInfo.id%></span>님 환영합니다!</div>
+    <h1>폼 결과 확인하기</h1>
+    <div><span><%= userInfo.id %></span>님 환영합니다!</div>
     <div>비밀번호는 <span><%=userInfo.pw%></span>이군요!</div>
+    <!-- <%console.log(Object.keys(userInfo).length)%>  -->
+    <% if(Object.values(userInfo).length==4){%>
+    <div>이메일은 <span><%=userInfo.email%></span>이시네용.</div>
+    <div>학년은 <span><%=userInfo.grade%></span>학년이고용</div>
+    <% }%>
+    <div></div>
   </body>
 </html>

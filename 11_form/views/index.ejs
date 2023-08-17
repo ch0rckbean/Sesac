@@ -4,12 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form</title>
+    <style>
+      .practice {
+        background-color: lightblue;
+        display: inline;
+      }
+    </style>
   </head>
   <body>
     <h1><%= title %></h1>
-    <div class="post Practice">
-      <h2>Post로 정보 받기 실습</h2>
-      <a href="/postInfo">Post로 정보 받기</a>
+    <div class="practice">
+      <a href="/getInfo">GET으로 정보 받기</a>
+      <a href="/postInfo">POST로 정보 받기</a>
       <!-- 상대경로로 쓰면 GET localhost:PORT/postInfo.ejs 되서 위 같이 고치고 -->
       <!-- 하이퍼링크 => 요청으로 바뀌는 것 -->
       <!-- app.js에 get으로 추가하기 -->
@@ -70,52 +76,6 @@
           required
         />
         <button>제출</button>
-      </form>
-
-      <br />
-      <br />
-      <br />
-      <!-- GET 실습 -->
-      <form action="/getInfo" method="get">
-        이름
-        <input type="text" name="nameForm" id="nameForm" />
-        <fieldset>
-          <legend>성별</legend>
-          <input type="radio" name="gender" value="male" />남자
-          <input type="radio" name="gender" value="female" />여자
-        </fieldset>
-        <fieldset>
-          <legend>생년월일</legend>
-          <select type="select" name="year" id="year">
-            <option value="2010">2010</option>
-            <option value="2020">2020</option>
-            <option value="2030">2030</option></select
-          >년
-          <select type="select" name="month" id="month">
-            <% for (let i=1; i<=12; i++){ %>
-            <option value="<%=i%>"><%= i %></option>
-            <% } %></select
-          >월
-          <select type="select" name="date" id="date">
-            <%for (let i=1; i<=31; i++) {%>
-            <option value="<%=i%>"><%= i %></option>
-            <%}%></select
-          >일
-        </fieldset>
-        <fieldset>
-          <legend>관심사</legend>
-          <label for="travel">
-            <input type="checkbox" name="interest" value="travel" />여행
-          </label>
-          <label for="fashion">
-            <input type="checkbox" name="interest" value="fasion" />패션
-          </label>
-          <label for="food">
-            <input type="checkbox" name="interest" value="food" />음식
-          </label>
-        </fieldset>
-        <br />
-        <button>회원가입</button>
       </form>
     </div>
   </body>

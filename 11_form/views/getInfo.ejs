@@ -6,12 +6,47 @@
     <title><%=title%></title>
   </head>
   <body>
-    <h1>getInfo를 통해 얻어온 정보를 표시할 페이지입니다</h1>
-    <br />
-    이름은 <%=userInfo.nameForm%>, 성별은 <%=userInfo.gender%>, <br />
-    생년월일은 <%= userInfo.year%>년 <%=userInfo.month%>월 <%=userInfo.date%>일
-    <br />
-    취미는 <%=userInfo.interest%>
-    <br />
+    <!-- GET 실습 -->
+    <form action="/getResult" method="get">
+      이름
+      <input type="text" name="nameForm" id="nameForm" />
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" value="male" />남자
+        <input type="radio" name="gender" value="female" />여자
+      </fieldset>
+      <fieldset>
+        <legend>생년월일</legend>
+        <select type="select" name="year" id="year">
+          <option value="2010">2010</option>
+          <option value="2020">2020</option>
+          <option value="2030">2030</option></select
+        >년
+        <select type="select" name="month" id="month">
+          <% for (let i=1; i<=12; i++){ %>
+          <option value="<%=i%>"><%= i %></option>
+          <% } %></select
+        >월
+        <select type="select" name="date" id="date">
+          <%for (let i=1; i<=31; i++) {%>
+          <option value="<%=i%>"><%= i %></option>
+          <%}%></select
+        >일
+      </fieldset>
+      <fieldset>
+        <legend>관심사</legend>
+        <label for="travel">
+          <input type="checkbox" name="interest" value="travel" />여행
+        </label>
+        <label for="fashion">
+          <input type="checkbox" name="interest" value="fasion" />패션
+        </label>
+        <label for="food">
+          <input type="checkbox" name="interest" value="food" />음식
+        </label>
+      </fieldset>
+      <br />
+      <button>회원가입</button>
+    </form>
   </body>
 </html>

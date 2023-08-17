@@ -139,7 +139,7 @@ function sub(n) {
   });
 }
 
-add(4, 3)
+add(4, 3) //return 꼭 해야 함
   .then(function (result) {
     console.log("1: ", result);
     return mul(result); //== return mul(7)

@@ -1,4 +1,43 @@
 ////////// Promise로 바꾸기
+// function call(name, cb) {
+//   setTimeout(function () {
+//     console.log(name);
+//     cb(name);
+//   }, 1000);
+// }
+// function back(cb) {
+//   setTimeout(() => {
+//     console.log("back");
+//     cb("back");
+//   }, 1000);
+// }
+// function here(cb) {
+//   setTimeout(function () {
+//     console.log("내 방");
+//     cb("내 방");
+//   });
+// }
+// call("Kang", function (name) {
+//   console.log(name + "안녕");
+//   back(function (txt) {
+//     console.log(txt + "을 실행햇넴");
+//     here(function (msg) {
+//       console.log("여기는" + msg);
+//     });
+//   });
+// });
+
+//////////실행 구문
+// call("Kang", function (name) {
+//   console.log(name + "안녕");
+//   back(function (txt) {
+//     console.log(txt + "을 실행햇넴");
+//     here(function (msg) {
+//       console.log("여기는" + msg);
+//     });
+//   });
+// });
+
 function call(name, cb) {
   setTimeout(function () {
     console.log(name);

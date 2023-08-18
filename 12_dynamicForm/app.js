@@ -35,6 +35,14 @@ app.post("/fetch", (req, res) => {
   res.send(req.body);
 });
 
+//실습 1 axios get 회원가입
+app.get("/rgstr", (req, res) => {
+  //a 태그 이어주기
+  res.render("rgstr");
+});
+app.get("/rgstr", (req, res) => {
+  res.send(req.query);
+});
 app.listen(PORT, () => {
   console.log("Server Opened");
 });

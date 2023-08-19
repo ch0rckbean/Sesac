@@ -3,9 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>12_dynamicForm</title>
+    <!-- jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <h1>dynamic Form Review</h1>
+    <h1>12_dynamicForm</h1>
+    <!-- method, name 안 씀 -->
+    <form action="register">
+      <label for="name"> 이름 </label>
+      <input type="text" name="name" id="name" value="봉미선" />
+      <br />
+
+      성별
+      <input type="radio" name="gender" value="F" id="F" checked />여자
+      <input type="radio" name="gender" value="M" id="M" />남자
+      <br />
+      <!-- submit type으로 하면 안 됨 -->
+      <button type="button" onclick="ajaxGet()">Ajax Get</button>
+      <button type="button" onclick="ajaxPost()">Ajax Post</button>
+      <button type="button" onclick="axiosGet()">Axios Get</button>
+      <button type="button" onclick="axiosPost()">Axios Post</button>
+      <button type="button" onclick="fetchGet()">Fetch Get</button>
+      <button type="button" onclick="fetchPost()">Fetch Post</button>
+    </form>
+    <div class="result">
+      <h1>동적 폼의 결과를 보여줄 곳</h1>
+    </div>
+
+    <script>
+      //변수 선언 및 할당
+      const result = document.getElementsByClassName("result");
+      const form = document.forms["register"];
+      console.dir(form); //DOM JS 객체의 전체 표현을 보려고 할 때 유용
+      console.dir(form.name);
+      const data = {
+        name: form.name.value,
+        gender: form.gender.value,
+      };
+      const { name, gender } = data; // 객체 구조분해 할당
+
+      function ajaxGet() {
+        $.ajax({
+          type: "get",
+          url: "/ajax",
+          data: data,
+          success: function (data) {
+            console.log("여기는 프론트엔드: ", data);
+            result.innerText = `GET /ajax 요청 완료! ${name}님은 ${gender}입니다.`;
+          },
+        });
+      }
+      function ajaxPost() {}
+      function axiosGet() {}
+      function axiosPost() {}
+      function fetchGet() {}
+      function fetchPost() {}
+    </script>
   </body>
 </html>

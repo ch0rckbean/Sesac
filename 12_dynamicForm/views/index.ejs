@@ -16,10 +16,11 @@
   <body>
     <h1>Dynamic Form 연습하기!</h1>
     <!-- 이름, 성별 입력받는 form 만들기 -->
+    <!-- method, name 안 씀 -->
+
     <form name="register">
       <label for="name">이름</label>
       <input type="text" id="name" name="name" value="짜앙구" />
-
       <br />
 
       성별
@@ -29,6 +30,7 @@
       <label for="female">여</label>
       <br />
 
+      <!-- 새로고침 되니까 submit type으로 하면 안 되고 button type으로 해야 함 -->
       <button type="button" onclick="ajaxGet();">Ajax Get 제출</button>
       <button type="button" onclick="ajaxPost();">Ajax Post 제출</button>
 
@@ -38,9 +40,11 @@
       <button type="button" onclick="fetchGet();">Fetch Get 제출</button>
       <button type="button" onclick="fetchPost();">Fetch Post 제출</button>
     </form>
+
     <!-- 동적폼 전송 결과를 보여줄 곳 -->
     <div class="rst"></div>
     <hr />
+
     <h1>OPEN API를 활용한 고양이 사진 랜덤 돌리기!</h1>
     <button onclick="changeImg()">랜덤</button>
     <img
@@ -53,8 +57,9 @@
     <hr />
     <h1>실습</h1>
     <a href="/rgstr">axios get 회원가입</a>
+
+    <!-- frontend JS code -->
     <script>
-      //frontend JS code
       const img = document.querySelector("img");
 
       async function changeImg() {
@@ -85,6 +90,7 @@
         gender: form.gender.value,
       };
 
+      // 동적 폼 전송 함수
       function ajaxGet() {
         console.log("ajaxGet 함수 호출!");
 

@@ -43,6 +43,7 @@ app.get("/rgstr", (req, res) => {
 app.get("/rgstr", (req, res) => {
   res.send(req.query);
 });
+
 app.listen(PORT, () => {
   console.log("Server Opened");
 });

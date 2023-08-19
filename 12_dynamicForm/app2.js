@@ -10,11 +10,13 @@ app.use(exp.json());
 app.get("/", (req, res) => {
   res.render("index2");
 });
-
 // 1.ajax
 app.get("/ajax", (req, res) => {
-  console.log("여기는 서버", req.query);
+  console.log("여기는 서버: ", req.query);
   res.send(req.query);
+});
+app.post("/ajax", (req, res) => {
+  res.send(req.body);
 });
 
 app.listen(PORT, () => {

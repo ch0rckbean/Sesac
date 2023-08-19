@@ -15,8 +15,8 @@
   </head>
   <body>
     <h1>12_dynamicForm</h1>
-    <!-- method, name 안 씀 -->
-    <form action="register">
+    <!-- method, action 안 씀 -->
+    <form name="register">
       <label for="name"> 이름 </label>
       <input type="text" name="name" id="name" value="봉미선" />
       <br />
@@ -33,16 +33,13 @@
       <button type="button" onclick="fetchGet()">Fetch Get</button>
       <button type="button" onclick="fetchPost()">Fetch Post</button>
     </form>
-    <div class="result">
-      <h1>동적 폼의 결과를 보여줄 곳</h1>
-    </div>
+    <h1>동적 전송 결과 보여줄 곳</h1>
+    <div class="result"></div>
 
     <script>
       //변수 선언 및 할당
-      const result = document.getElementsByClassName("result");
+      const result = document.querySelector(".result");
       const form = document.forms["register"];
-      console.dir(form); //DOM JS 객체의 전체 표현을 보려고 할 때 유용
-      console.dir(form.name);
       const data = {
         name: form.name.value,
         gender: form.gender.value,
@@ -60,7 +57,17 @@
           },
         });
       }
-      function ajaxPost() {}
+      function ajaxPost() {
+        $.ajax({
+          type: "post",
+          url: "/ajax",
+          data: data,
+          success: function (data) {
+            console.log("여기는 프론트엔드: ", data);
+            result.innerText = `POST /ajax 요청 완료! ${name}님은 ${gender}입니다.`;
+          },
+        });
+      }
       function axiosGet() {}
       function axiosPost() {}
       function fetchGet() {}

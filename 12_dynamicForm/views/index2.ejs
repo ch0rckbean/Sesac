@@ -68,10 +68,62 @@
           },
         });
       }
-      function axiosGet() {}
-      function axiosPost() {}
-      function fetchGet() {}
-      function fetchPost() {}
+
+      //2. Axios
+      //Promise 객체 반환
+      async function axiosGet() {
+        try {
+          const response = await axios({
+            method: "get",
+            url: "/axios",
+            params: data,
+          });
+          result.innerText = `GET /axios 요청 완료! ${name}님은 ${gender}이시죠?`;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      async function axiosPost() {
+        try {
+          const response = await axios({
+            method: "post",
+            url: "/axios",
+            data: data,
+          });
+          result.innerText = `POST /axios 요청 완료! ${name}님은 ${gender}이시죠?`;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      //3. fetch
+      function fetchGet() {
+        fetch(`/fetch?name=${name}&gender=${gender}`)
+          .then(function (response) {
+            console.log(response);
+            return response.json(); //역직렬화
+          })
+          .then(function (response2) {
+            console.log(response2);
+            result.innerText = `GET /fetch 요청 완료! ${name}님은 ${gender}이시죠?`;
+          });
+      }
+
+      function fetchPost() {
+        fetch("/fetch", {
+          method: "post",
+          header: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then(function () {
+            result.innerText = `POST /fetch 요청 완료! ${data.name}님은 ${data.gender}이시죠?`;
+          });
+      }
     </script>
   </body>
 </html>

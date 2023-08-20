@@ -18,7 +18,19 @@ app.get("/ajax", (req, res) => {
 app.post("/ajax", (req, res) => {
   res.send(req.body);
 });
-
+//2. axios
+app.get("/axios", (req, res) => {
+  res.send(req.query);
+});
+app.post("/axios", (req, res) => {
+  res.send(req.body);
+});
+app.get("/fetch", (req, res) => {
+  res.send(req.query);
+});
+app.post("/fetch", (req, res) => {
+  res.send(req.body);
+});
 app.listen(PORT, () => {
   console.log("Server Opened");
 });

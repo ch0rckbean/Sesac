@@ -36,9 +36,9 @@ app.post("/fetch", (req, res) => {
 });
 
 //실습 1 axios get 회원가입
-app.get("/rgstr", (req, res) => {
+app.get("/pr_rgstr", (req, res) => {
   //a 태그 이어주기
-  res.render("rgstr");
+  res.render("pr_rgstr");
 });
 app.get("/rgstr", (req, res) => {
   res.send(req.query);

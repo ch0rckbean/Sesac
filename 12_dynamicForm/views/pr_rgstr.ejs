@@ -3,22 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- axios cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>axios get 회원가입</title>
   </head>
   <body>
     <h1>axios get 회원가입</h1>
-    <form name="register">
+    <form name="pr_rgstr">
       <label for="username">이름</label>
-      <input type="text" name="username" id="username" />
+      <input type="text" name="username" id="username" required />
       <br />
 
       <fieldset>
         <legend>성별</legend>
-        <input type="radio" name="gender" id="male" value="male" />
+        <input type="radio" name="gender" id="male" value="male" required />
         <label for="male">남자</label>
-        <input type="radio" name="gender" id="female" value="female" />
+        <input type="radio" name="gender" id="female" value="female" required />
         <label for="female">여자</label>
       </fieldset>
       <br />
@@ -55,37 +53,18 @@
         <input type="checkbox" name="hobby" id="food" value="food" />
         <label for="food">음식</label>
       </fieldset>
-      <button type="button" onclick="registerFunc()">회원가입</button>
-      <!-- button 주의하기 -->
+      <br />
+
+      <fieldset>
+        <legend>기타</legend>
+        <label for="my-color">좋아하는 색상</label>
+        <input type="color" name="myColor" id="my-color" />
+        <br />
+        <label for="my-number">좋아하는 숫자</label>
+        <input type="number" name="myNumber" id="my-number" />
+      </fieldset>
+      <br />
+      <button type="submit">회원가입</button>
     </form>
-    <div class="rst2">결과</div>
-
-    <script>
-      const rst2 = document.querySelector(".rst2");
-      const form = document.forms["register"];
-      const userInfo = {
-        name: form.username.value,
-        gender: form.gender.value,
-        birthYear: form.birthYear.value,
-        birthMonth: form.birthMonth.value,
-        birthDay: form.birthDay.value,
-        hobby: form.hobby.value,
-      };
-
-      // console.log(userInfo);
-      async function registerFunc() {
-        console.log("register 호출");
-        const response = await axios({
-          method: "get",
-          url: "/rgstr",
-          params: userInfo,
-        });
-        console.log(response.userInfo);
-        const { name, gender, birthYear, birthMonth, birthDay, hobby } =
-          userInfo;
-        rst2.innerText = `이름은 ${name},성별은 ${gender}, 생년월일은 ${birthYear}-${birthMonth}-${birthDay},
-            취미는 ${hobby}`;
-      }
-    </script>
   </body>
 </html>

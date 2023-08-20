@@ -31,6 +31,7 @@ app.get("/fetch", (req, res) => {
 app.post("/fetch", (req, res) => {
   res.send(req.body);
 });
+
 app.listen(PORT, () => {
   console.log("Server Opened");
 });

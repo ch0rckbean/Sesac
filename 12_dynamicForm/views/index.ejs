@@ -19,10 +19,10 @@
     <!-- method, name 안 씀 -->
     <form name="register">
       <label for="name">이름</label>
-      <input type="text" id="name" name="name" value="짜앙구" />
+      <input type="text" id="name" name="name" />
       <br />
       성별
-      <input type="radio" name="gender" value="m" id="male" checked />
+      <input type="radio" name="gender" value="m" id="male" />
       <label for="male">남</label>
       <input type="radio" name="gender" value="F" id="female" />
       <label for="female">여</label>
@@ -50,8 +50,9 @@
     />
 
     <hr />
-    <h1>실습</h1>
+    <h1>실습2</h1>
     <a href="/pr_rgstr">axios get 회원가입</a>
+    <a href="/pr_login">axios get 회원가입</a>
 
     <!-- frontend JS code -->
     <script>
@@ -65,17 +66,16 @@
       console.dir(form.name.value); //이름 input에 입력한 값
       console.dir(form.gender.value); //성별 radio input을 선택한 값
 
-      //요청에 실어서 보낼 데이터 변수(서버에서 받을 정보)
-      const data = {
-        //서버에 보낼 데이터
-        name: form.name.value,
-        gender: form.gender.value,
-      };
-      const { name, gender } = data;
-
       // 동적 폼 전송 함수
       //1. ajax
       function ajaxGet() {
+        //요청에 실어서 보낼 데이터 변수(서버에서 받을 정보): 전역 선언 x, 함수마다 새로 선언
+        const data = {
+          //서버에 보낼 데이터
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+        const { name, gender } = data;
         console.log("ajaxGet 함수 호출!");
 
         // Ajax로 서버에 Get요청 보내기
@@ -94,7 +94,13 @@
 
       // Ajax로 서버에 Post요청 보내기
       function ajaxPost() {
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+        const { name, gender } = data;
         console.log("ajaxPost 함수 호출!");
+
         $.ajax({
           type: "post",
           url: "/ajax",
@@ -151,6 +157,11 @@
       //   exec();
 
       async function axiosGet() {
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+        const { name, gender } = data;
         console.log("axiosGet 함수 호출");
         try {
           const response = await axios({
@@ -178,6 +189,11 @@
       //   }
       //퀴즈: 위 코드 async-await로 변경
       async function axiosPost() {
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+        const { name, gender } = data;
         console.log("axiosPost 함수 호출");
         try {
           const response = await axios({
@@ -213,6 +229,11 @@
           });
       }
       function fetchPost() {
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+        const { name, gender } = data;
         //fetch를 통해 post 요청 시 option 객체 반드시 필요
         //1. method 키 post 지정
         //2. headers 키 JSON 포맷 사용 선언

@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>axios get 회원가입</title>
   </head>
   <body>
     <h1>axios get 회원가입</h1>
     <form name="pr_rgstr">
-      <label for="username">이름</label>
-      <input type="text" name="username" id="username" required />
+      <!-- form name과 서버의 url이 같으면 안 됨 -->
+      <label for="name">이름</label>
+      <input type="text" name="name" id="name" required />
       <br />
 
       <fieldset>
@@ -23,19 +26,19 @@
 
       <fieldset>
         <legend>생년월일</legend>
-        <select name="birthYear" id="year">
+        <select name="year" id="year">
           <% for (let i = 0; i < 50; i++) { %>
           <option value="<%= 2010 - i %>"><%= 2010 - i %></option>
           <% } %>
         </select>
         <label for="year">년</label>
-        <select name="birthMonth" id="month">
+        <select name="month" id="month">
           <% for (let i = 1; i < 13; i++) { %>
           <option value="<%= i %>"><%= i %></option>
           <% } %>
         </select>
         <label for="month">월</label>
-        <select name="birthDay" id="day">
+        <select name="day" id="day">
           <% for (let i = 1; i < 31; i++) { %>
           <option value="<%= i %>"><%= i %></option>
           <% } %>
@@ -58,13 +61,59 @@
       <fieldset>
         <legend>기타</legend>
         <label for="my-color">좋아하는 색상</label>
-        <input type="color" name="myColor" id="my-color" />
+        <input type="color" name="color" id="my-color" />
         <br />
         <label for="my-number">좋아하는 숫자</label>
-        <input type="number" name="myNumber" id="my-number" />
+        <input type="number" name="num" id="my-number" />
       </fieldset>
       <br />
-      <button type="submit">회원가입</button>
+      <button type="button" onclick="axiosGet()">회원가입</button>
     </form>
+    <h2>결과가 표시될 곳</h2>
+    <div class="result"></div>
+    <script>
+      const form = document.forms["pr_rgstr"];
+      const result = document.querySelector(".result");
+      let checked = [];
+
+      async function axiosGet() {
+        const info = {
+          //전역 선언하면 새 값이 들어올 때마다 재 할당이 안 되고 같은 값만 나옴
+          // 함수 실행시마다 재 할당 필요!
+          name: form.name.value,
+          gender: form.gender.value,
+          year: form.year.value,
+          month: form.month.value,
+          day: form.day.value,
+          hobby: checked,
+          color: form.color.value,
+          num: form.num.value,
+        };
+        const { name, gender, year, month, day, hobby, color, num } = info;
+        //console.log(name, gender, year, month, day, hobby, color, num);
+
+        try {
+          const response = await axios({
+            method: "get",
+            url: "/pr_rgstrResult",
+            params: info,
+          });
+
+          //체크박스가 여러개 선택되었을 때 값을 가져오기 위한 반복문
+          checked = []; // 버튼 클릭 시마다 배열 초기화
+          for (let hb of form.hobby) {
+            if (hb.checked) {
+              checked.push(hb.value);
+            }
+            //console.log(hb, checked);
+          }
+
+          result.innerText = `${name}님은 ${gender}이고, 생일은 ${year}-${month}-${day}, 취미는 ${checked}, 
+          좋아하는 색상과 숫자는 각각 ${color},${num}이군요.`;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    </script>
   </body>
 </html>

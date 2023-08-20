@@ -46,6 +46,22 @@ app.get("/pr_rgstrResult", (req, res) => {
   res.send(req.query);
 });
 
+//실습 2. axios post 로그인
+const realId = "myId";
+const realPw = "myPw";
+
+app.get("/pr_login", (req, res) => {
+  //a 태그 이어주기
+  res.render("pr_login");
+});
+app.post("/pr_loginResult", (req, res) => {
+  if ((req.body.id == realId) & (req.body.pw === realPw)) {
+    res.send({ state: "Success" });
+  } else {
+    res.send({ state: "Fail" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log("Server Opened");
 });

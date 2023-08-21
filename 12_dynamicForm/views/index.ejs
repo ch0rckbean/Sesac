@@ -19,10 +19,10 @@
     <!-- method, name 안 씀 -->
     <form name="register">
       <label for="name">이름</label>
-      <input type="text" id="name" name="name" />
+      <input type="text" id="name" name="name" required />
       <br />
       성별
-      <input type="radio" name="gender" value="m" id="male" />
+      <input type="radio" name="gender" value="m" id="male" required />
       <label for="male">남</label>
       <input type="radio" name="gender" value="F" id="female" />
       <label for="female">여</label>
@@ -30,7 +30,9 @@
       <!-- 새로고침 되니까 submit type으로 하면 안 되고 button type으로 해야 함 -->
       <button type="button" onclick="ajaxGet();">Ajax Get 제출</button>
       <button type="button" onclick="ajaxPost();">Ajax Post 제출</button>
-      <button type="button" onclick="axiosGet();">Axios Get 제출</button>
+      <button type="button" onclick="axiosGet();">
+        Axios Get 제출 (+form validation)
+      </button>
       <button type="button" onclick="axiosPost();">Axios Post 제출</button>
       <button type="button" onclick="fetchGet();">Fetch Get 제출</button>
       <button type="button" onclick="fetchPost();">Fetch Post 제출</button>
@@ -164,13 +166,33 @@
         const { name, gender } = data;
         console.log("axiosGet 함수 호출");
         try {
-          const response = await axios({
-            method: "get",
-            url: "/axios",
-            params: data,
-          });
-          console.log(response.data);
-          rst.innerText = `GET /axios 요청 완료! ${name}님은 ${gender}이시죠?`;
+          //폼 유효성 검사
+          //name input 입력값이 없다면, "이름을 입력해주세요"
+          //gender radio btn 선택하지 않았다면, "성별을 선택해주세요!"
+          //둘 다 입력이 잘 됐다면 axios로 back에 요청 날리기
+          //조건문 작성시 반환값 잘 생각하기
+          if (!form.name.checkValidity()) {
+            rst.innerText = "이름을 입력해주세요";
+            rst.style.color = "salmon";
+          } else if (!form.gender[0].checkValidity()) {
+            rst.innerText = "성별을 선택해주세요!";
+            rst.style.color = "tomato";
+          } else if (
+            form.name.checkValidity() & form.gender[0].checkValidity()
+          ) {
+            const response = await axios({
+              method: "get",
+              url: "/axios",
+              params: data,
+            });
+            console.log(response.data);
+            console.log(form.name.checkValidity()); //값 입력 여부 검사
+            console.log(form.gender[0].checkValidity());
+            console.log(form.gender[1].checkValidity());
+            //1 개만 선택해도 둘 다 true 찍힘 => 같은 name으로 묶인 radio btn은 1개만 선택되도 true 반환
+            rst.innerText = `GET /axios 요청 완료! ${name}님은 ${gender}이시죠?`;
+            rst.style.color = "purple";
+          }
         } catch (err) {
           console.log("error", err);
         }

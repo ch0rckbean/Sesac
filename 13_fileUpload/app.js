@@ -13,18 +13,45 @@ app.get("/", (req, res) => {
 
 //multer 관련 설정
 const multer = require("multer");
+//path 내장 모듈
+const path = require("path"); //경로에 관한 내장 모듈
 const upload = multer({
   dest: "uploads/", //dest: client가 업로드한 파일 저장할 서버측 경로
 });
+const uploadDetail = multer({
+  //multer 세부 설정
+  //storage: 저장할 공간에 대한 정보
+  storage: multer.diskStorage({
+    destination(req, file, done) {
+      //done: callbackFunc
+      done(null, "uploads/"); //파일 업로드할 경로 설정
+      //null: error 의미 => 에러 x를 null로 전달해 콜백 함수 호출
+    },
+    filename(req, file, done) {
+      const ext = path.extname(file.originalname); //파일 확장자 추출. ex).txt .png ...
+      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      //basename: 원본 파일에서 확장자 제외 파일 이름만 추출
+      // 파일명에 날짜도 같이 저장하는 이유
+      //   1. 파일 이름 중복 방지
+      //   2. 파일 이름만 보고 파일 저장 시점 유추
+    },
+  }),
+  //limits: 파일 제한 정보
+  limits: {
+    fileSize: 5 * 1024 * 1024, //5MB
+  },
+});
+
 // 1. single(): 하나의 파일을 업로드
 // upload.single("userfile") :
 //  - 클라이언트 요청 들어오면 multer 설정(upload 변수)에 따라 파일 업로드 후 req.file 객체 생성
 // single() 인자는 input 태그 name 속성과 일치해야
-app.post("/upload", upload.single("userfile"), (req, res) => {
+app.post("/upload", uploadDetail.single("userfile"), (req, res) => {
   console.log("req.file ", req.file); //file 업로드 정보
   console.log("req.body ", req.body); //file 외 정보들
   res.send("Server: File Uploaded!");
 });
+
 // req.file
 // {
 //     fieldname: 'userfile',  //form에 정의한 name 값

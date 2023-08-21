@@ -7,10 +7,33 @@
   </head>
   <body>
     <h1>File Upload</h1>
+    <h2>Single File Upload</h2>
+    <p>하나의 인풋에 하나의 파일 업로드</p>
     <form action="/upload" method="POST" enctype="multipart/form-data">
       <!-- multer 사용 시 enctype="multipart/form-data" 꼭 필요 -->
       <input type="file" name="userfile" id="" /><br />
       <input type="text" name="title" /> <br /><br />
+      <button type="submit">업로드</button>
+    </form>
+
+    <h2>Multi File Upload</h2>
+    <p>하나의 인풋에 여러개의 파일 업로드</p>
+    <form action="/upload/array" method="POST" enctype="multipart/form-data">
+      <!-- 하나의 인풋에 여러 파일 입력받고 싶다면 multiple 속성 추가-->
+      <!-- action의 주소 달라야 함 -->
+      <input type="file" name="userfiles" id="" multiple /><br />
+      <input type="text" name="title" /> <br /><br />
+      <button type="submit">업로드</button>
+    </form>
+
+    <h2>Multi File Upload2</h2>
+    <p>여러 인풋에 여러개의 파일 업로드</p>
+    <form action="/upload/fields" method="POST" enctype="multipart/form-data">
+      <input type="file" name="userfile1" id="" /><br />
+      <input type="text" name="title1" /> <br /><br />
+
+      <input type="file" name="userfile2" id="" /><br />
+      <input type="text" name="title2" /> <br /><br />
       <button type="submit">업로드</button>
     </form>
     <script></script>

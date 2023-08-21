@@ -51,7 +51,6 @@ app.post("/upload", uploadDetail.single("userfile"), (req, res) => {
   console.log("req.body ", req.body); //file 외 정보들
   res.send("Server: File Uploaded!");
 });
-
 // req.file
 // {
 //     fieldname: 'userfile',  //form에 정의한 name 값
@@ -64,7 +63,27 @@ app.post("/upload", uploadDetail.single("userfile"), (req, res) => {
 //     size: 41407 //파일 크기
 //   }
 
-// 2.
+// 2. array(): 여러 파일 한 번에 업로드
+// uploadDetail.array("userfiles") : 클라이언트 요청 들어오면
+//multer 설정(uploadDetail 변수)에 따라 파일 업로드 후, req.files 생성
+app.post("/upload/array", uploadDetail.array("userfiles"), (req, res) => {
+  console.log(req.files); // [{파일1 정보},{파일2 정보},..] : 배열 형태로 각 파일 정보 출력
+  console.log(req.body);
+  res.send("하나의 인풋에 여러 파일 업로드 완료!");
+});
+
+// 3.fields(): 여러 파일 각각 인풋에 업로드
+// req.files에서 파일 정보 확인
+// fields()매개 변수로 input 태그 name 각각 넣기
+app.post(
+  "/upload/fields",
+  uploadDetail.fields([{ name: "userfile1" }, { name: "userfile2" }]),
+  (req, res) => {
+    console.log(req.files); // {userfile1: [{파일 정보}], userfile1: [{파일 정보}] } 객체 안에 배열 형태로 각 파일 정보
+    console.log(req.body);
+    res.send("여러 인풋에 여러 파일 업로드 완료!");
+  }
+);
 
 app.listen(PORT, () => {
   console.log("Server Opened");

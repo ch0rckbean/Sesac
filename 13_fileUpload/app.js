@@ -4,6 +4,7 @@ const PORT = 8000;
 
 app.set("view engine", "ejs");
 app.set("/views", express.static(__dirname + "/views"));
+app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -84,6 +85,12 @@ app.post(
     res.send("여러 인풋에 여러 파일 업로드 완료!");
   }
 );
+
+// 4. 동적 폼 전송
+app.post("/dynamic", uploadDetail.single("dynamicUserFile"), (req, res) => {
+  console.log(req.file);
+  res.send(req.file);
+});
 
 app.listen(PORT, () => {
   console.log("Server Opened");

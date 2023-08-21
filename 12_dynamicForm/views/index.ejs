@@ -167,9 +167,9 @@
         console.log("axiosGet 함수 호출");
         try {
           //폼 유효성 검사
-          //name input 입력값이 없다면, "이름을 입력해주세요"
-          //gender radio btn 선택하지 않았다면, "성별을 선택해주세요!"
-          //둘 다 입력이 잘 됐다면 axios로 back에 요청 날리기
+          //- name input 입력값이 없다면, "이름을 입력해주세요"
+          //- gender radio btn 선택하지 않았다면, "성별을 선택해주세요!"
+          //- 둘 다 입력이 잘 됐다면 axios로 back에 요청 날리기
           //조건문 작성시 반환값 잘 생각하기
           if (!form.name.checkValidity()) {
             rst.innerText = "이름을 입력해주세요";

@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
 
 //multer 관련 설정
 const multer = require("multer");
+const { userInfo } = require("os");
 //path 내장 모듈
 const path = require("path"); //경로에 관한 내장 모듈
 const upload = multer({
@@ -52,6 +53,7 @@ app.post("/upload", uploadDetail.single("userfile"), (req, res) => {
   console.log("req.body ", req.body); //file 외 정보들
   res.send("Server: File Uploaded!");
 });
+
 // req.file
 // {
 //     fieldname: 'userfile',  //form에 정의한 name 값
@@ -94,4 +96,33 @@ app.post("/dynamic", uploadDetail.single("dynamicUserFile"), (req, res) => {
 
 app.listen(PORT, () => {
   console.log("Server Opened");
+});
+
+// 5. 실습
+//이름 형식에 맞춰 저장
+const prUploadInfo = multer({
+  storage: multer.diskStorage({
+    destination(req, file, done) {
+      done(null, "uploads/");
+    },
+    filename(req, file, done) {
+      const ext = path.extname(file.originalname);
+      done(null, req.body.id + ext);
+      //   console.log(req.body);
+    },
+  }),
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+  },
+});
+
+app.post("/prResult", prUploadInfo.single("prFile"), (req, res) => {
+  console.log("req.file ", req.file);
+  console.log("req.body ", req.body);
+  console.log(req.file.filename);
+  //   res.render(req.file.path);
+  res.render("prResult", {
+    src: "uploads/" + req.file.filename,
+    userInfo: req.body,
+  }); //페이지 이동
 });

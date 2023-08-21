@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pr</title>
+    <style>
+      body {
+        background-color: palegreen;
+        text-align: center;
+      }
+      .result {
+        background-color: aliceblue;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="result">
+      <img src="<%=src%>" alt="" width="200px" /><br />
+      <h2><%=userInfo.id%>님 환영합니다!</h2>
+      <h3>비밀번호 : <%=userInfo.pw%></h3>
+      <h3>이름: <%=userInfo.name%></h3>
+      <h3>나이: <%=userInfo.age%></h3>
+    </div>
+    <script></script>
+  </body>
+</html>

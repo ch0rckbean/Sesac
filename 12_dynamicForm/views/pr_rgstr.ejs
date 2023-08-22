@@ -93,23 +93,30 @@
         //console.log(name, gender, year, month, day, hobby, color, num);
 
         try {
-          const response = await axios({
-            method: "get",
-            url: "/pr_rgstrResult",
-            params: info,
-          });
+          // 유효성 검사 추가
+          if (!form.name.checkValidity()) {
+            //if (name == "") {
+            //if (!name) {
+            result.innerText = "이름을 입력해주세요";
+          } else {
+            const response = await axios({
+              method: "get",
+              url: "/pr_rgstrResult",
+              params: info,
+            });
 
-          //체크박스가 여러개 선택되었을 때 값을 가져오기 위한 반복문
-          checked = []; // 버튼 클릭 시마다 배열 초기화
-          for (let hb of form.hobby) {
-            if (hb.checked) {
-              checked.push(hb.value);
+            //체크박스가 여러개 선택되었을 때 값을 가져오기 위한 반복문
+            checked = []; // 버튼 클릭 시마다 배열 초기화
+            for (let hb of form.hobby) {
+              if (hb.checked) {
+                checked.push(hb.value);
+              }
+              //console.log(hb, checked);
             }
-            //console.log(hb, checked);
-          }
 
-          result.innerText = `${name}님은 ${gender}이고, 생일은 ${year}-${month}-${day}, 취미는 ${checked}, 
+            result.innerText = `${name}님은 ${gender}이고, 생일은 ${year}-${month}-${day}, 취미는 ${checked}, 
           좋아하는 색상과 숫자는 각각 ${color},${num}이군요.`;
+          }
         } catch (err) {
           console.log(err);
         }

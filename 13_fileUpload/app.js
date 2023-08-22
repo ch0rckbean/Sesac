@@ -24,8 +24,8 @@ const uploadDetail = multer({
   //multer 세부 설정
   //storage: 저장할 공간에 대한 정보
   storage: multer.diskStorage({
+    //done: callbackFunc
     destination(req, file, done) {
-      //done: callbackFunc
       done(null, "uploads/"); //파일 업로드할 경로 설정
       //null: error 의미 => 에러 x를 null로 전달해 콜백 함수 호출
     },

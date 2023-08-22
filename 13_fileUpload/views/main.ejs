@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h2>single</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfile" /><br />
+      <input type="text" name="title" /> <br /><br />
+      <button type="submit">Upload</button>
+    </form>
+    <h2>1 input multi upload</h2>
+    <form action="/upload/m1" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfiles" multiple /><br />
+      <input type="text" name="title" /> <br /><br />
+      <button type="submit">UP</button>
+    </form>
+
+    <h2>multi multi</h2>
+    <form action="/upload/m2" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfile1" /><br />
+      <input type="text" name="title1" /> <br />
+      <input type="file" name="userfile2" /><br />
+      <input type="text" name="title2" /> <br />
+      <button type="submit">UP2</button>
+    </form>
+
+    <h2>dynamic</h2>
+    <input type="file" name="dFile" id="dFile" />
+    <button type="button" onclick="up()">upl</button>
+    <br />
+    <img src="" alt="" width="300" />
+    <!-- <form action="/upload/d" method="post" enctype="multipart/form-data">
+    </form> -->
+
+    <!-- //실습 -->
+
+    <script>
+      function up() {
+        const formData = new FormData();
+        const imgFile = document.querySelector("#dFile");
+
+        formData.append("dFile", imgFile.files[0]);
+        axios({
+          method: "post",
+          url: "/dynamic",
+          data: formData,
+          header: {
+            "Content=Type": "multipart/form-data",
+          },
+        }).then((res) => {
+          const { data } = res;
+          document.querySelector("img").src = "/" + data.path;
+        });
+      }
+    </script>
+  </body>
+</html>

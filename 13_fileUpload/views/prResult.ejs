@@ -8,6 +8,8 @@
       body {
         background-color: palegreen;
         text-align: center;
+        display: flex;
+        justify-content: center;
       }
       .result {
         background-color: aliceblue;
@@ -22,10 +24,10 @@
   <body>
     <div class="result">
       <img src="<%=src%>" alt="" width="200px" /><br />
-      <h2><%=userInfo.id%>님 환영합니다!</h2>
-      <h3>비밀번호 : <%=userInfo.pw%></h3>
-      <h3>이름: <%=userInfo.name%></h3>
-      <h3>나이: <%=userInfo.age%></h3>
+      <h3><%=userInfo.id%>님 환영합니다!</h3>
+      <p>비밀번호 : <%=userInfo.pw%></h3>
+      <p>이름: <%=userInfo.name%></p>
+      <p>나이: <%=userInfo.age%></p>
     </div>
     <script></script>
   </body>

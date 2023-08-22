@@ -38,7 +38,19 @@
     </form> -->
 
     <!-- //실습 -->
-
+    <h2>실습</h2>
+    <form
+      action="/loginFin"
+      method="post"
+      name="pr"
+      enctype="multipart/form-data"
+    >
+      <input type="text" name="id" />
+      <input type="password" name="pw" />
+      <input type="number" name="age" />
+      <input type="file" name="prFile" />
+      <button type="submit">버튼</button>
+    </form>
     <script>
       function up() {
         const formData = new FormData();

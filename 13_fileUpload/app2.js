@@ -3,7 +3,7 @@ const app = exp();
 const PORT = 8001;
 
 app.set("view engine", "ejs");
-app.set("/pages", exp.static(__dirname + "/pages"));
+app.set("/views", exp.static(__dirname + "/views"));
 app.use("/up2", exp.static(__dirname + "/up2"));
 app.use(exp.urlencoded({ extended: true }));
 app.use(exp.json());
@@ -66,8 +66,14 @@ app.get("/", (req, res) => {
 });
 
 //실습
-app.get("/loginFin", (req, res) => {
-  res.render("/loginFin");
+app.post("/loginFin", upInfo.single("prFile"), (req, res) => {
+  console.log("성공");
+  console.log(req.file);
+
+  res.render("loginFin", {
+    src: "up2/" + req.file.filename,
+    info: req.body,
+  });
 });
 
 app.listen(PORT, () => {

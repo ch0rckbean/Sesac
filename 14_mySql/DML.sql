@@ -42,7 +42,7 @@ create table orders(
 
 -- INSERT 추가
 INSERT INTO cstmr (custid, custname, addr, phone, birth) 
-	values('lucky', '강해원', '미국 뉴욕', '01022223333', '2002-03-05');
+	VALUES('lucky', '강해원', '미국 뉴욕', '01022223333', '2002-03-05');
 
 insert into cstmr (addr, phone, birth, custid, custname) 
 	values('대한민국 부산', '01098765432', '2007-04-28', 'wow', '이지은');
@@ -65,11 +65,11 @@ insert into orders values (NULL, 'kiwi', '홈런볼', '2000', 3);
 
 -- UPDATE 수정
 -- custid가 happy인 고객 주소 => 대한민국 서울로 변경 
-update cstmr set addr = "대한민국 서울" where custid="happy";
+UPDATE cstmr SET addr = "대한민국 서울" WHERE custid="happy";
 
 -- DELETE 삭제
 -- custid가 happy인 사람의 정보를 테이블에서 삭제
-delete from cstmr where custid="happy";
+DELETE FROM cstmr WHERE custid="happy";
 
 -- 고객 테이블에 'apple' 고객을 삭제했을 때, 주문 테이블에서 'apple' 고객의 주문 정보가 함께 삭제되는지? (on delete cascade)
 delete from cstmr where custid = 'apple';

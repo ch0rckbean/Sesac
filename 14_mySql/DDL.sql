@@ -9,16 +9,16 @@
 
 -- [Database 관련 명령어]
 -- 1. Database 생성
-create database db1 default character set utf8 collate utf8_general_ci;
+CREATE DATABASE db1 DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI;
 
 -- 2. Database 목록 조회
-show databases;
+SHOW DATABASES;
 
 -- 3. Database 사용 선언
-use db1;
+USE db1;
 
 -- 4. Database 삭제
-drop database db1;
+DROP DATABASE db1;
 
 -- [Table 관련 명령어]
 -- 1. Table 생성
@@ -37,7 +37,7 @@ CREATE TABLE bckt(
 
 -- 2. Table 목록 확인
 -- 현재 사용중인 데이터베이스의 모든 테이블 조회 
-show tables;
+SHOW tables;
 
 -- 3. Table 구조 확인
 -- 테이블 컬럼 정보(자료형, NULL 여부, KEY, DEFAULT 등)

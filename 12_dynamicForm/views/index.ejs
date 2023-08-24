@@ -20,6 +20,7 @@
     <form name="register">
       <label for="name">이름</label>
       <input type="text" id="name" name="name" required />
+      <!-- onchange="ajaxGetOnInput()" -->
       <br />
       성별
       <input type="radio" name="gender" value="m" id="male" required />
@@ -28,7 +29,8 @@
       <label for="female">여</label>
       <br />
       <!-- 새로고침 되니까 submit type으로 하면 안 되고 button type으로 해야 함 -->
-      <button type="button" onclick="ajaxGet();">Ajax Get 제출</button>
+      <!-- <button type="button">Ajax Get 제출</button> -->
+      <button type="button" onclick="ajaxGet()">Ajax Get 제출</button>
       <button type="button" onclick="ajaxPost();">Ajax Post 제출</button>
       <button type="button" onclick="axiosGet();">
         Axios Get 제출 (+form validation)
@@ -292,6 +294,24 @@
         img.src = data[0].url; //img 태그의 src 속성을 open api에서 받아온 랜덤 이미지 주소로 변경
         // 분해 할당 대신 => img.src=catImgInfo.data[0].url;
       }
+
+      /*function ajaxGetOnInput() { //input에 대해 oninput test를 위한 함수
+        const data = {
+          //서버에 보낼 데이터
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+        const { name, gender } = data;
+        $.ajax({
+          type: "get",
+          url: "/ajax",
+          data: data,
+          success: function (data) {
+            console.log(data);
+            rst.innerText = `GET /ajax 요청 완료! ${name}님은 ${gender}이시죠?`;
+          },
+        });
+      }*/
     </script>
   </body>
 </html>

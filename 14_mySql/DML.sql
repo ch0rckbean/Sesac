@@ -22,7 +22,7 @@ create table orders(
 	orderid int primary key auto_increment,  -- FK
     custid char(10) not null,
     prodname char(6) not null,
-        price int not null,
+    price int not null,
     amount smallint not null,
     foreign key (custid) references cstmr(custid) on update cascade on delete cascade
 );
@@ -70,7 +70,6 @@ UPDATE cstmr SET addr = "대한민국 서울" WHERE custid="happy";
 -- DELETE 삭제
 -- custid가 happy인 사람의 정보를 테이블에서 삭제
 DELETE FROM cstmr WHERE custid="happy";
-
 -- 고객 테이블에 'apple' 고객을 삭제했을 때, 주문 테이블에서 'apple' 고객의 주문 정보가 함께 삭제되는지? (on delete cascade)
 delete from cstmr where custid = 'apple';
 
@@ -188,6 +187,85 @@ select * from cstmr where addr like "미국%" or addr like "영국%";
 -- 휴대폰 번호 마지막 자리가 4가 아닌 고객 검색
 select * from cstmr where phone not like "%_4";
 
+-- <ORDER BY>
+-- ORDER BY 없음: PK 기준 오름차순 정렬
+SELECT * FROM cstmr;
+SELECT * FROM cstmr ORDER BY custname;
+SELECT * FROM cstmr ORDER BY custname DESC;
+
+-- WHERE절과 ORDER BY 함께 사용(단, ORDER BY가 WHERE보다 뒤에 위치해야 함)
+-- 2000년생 이후 출생자 중에서 주소 기준으로 내림차순 검색
+SELECT * FROM cstmr WHERE birth >= '2000-01-01' ORDER BY addr DESC;
+
+-- 2000년생 이후 출생자 중에서 주소 내림차순 + 아이디 기준 내림차순 검색
+SELECT * FROM cstmr WHERE birth >= '2000-01-01' ORDER BY addr DESC, custid DESC;
+
+-- 2000년생 이후 출생자 중에서 주소 오름차순 + 아이디 기준 내림차순 검색
+SELECT * FROM cstmr WHERE birth >= '2000-01-01' ORDER BY addr, custid DESC;
+
+-- <LIMIT> 
+-- 행의 개수 제한
+SELECT * FROM cstmr WHERE BIRTH >='2000-01-01' LIMIT 2;
+SELECT * FROM cstmr LIMIT 3;
+
+-- <집계 함수>
+-- 계산 값 반환 함수
+-- GROUP BY 절과 함께 쓰이는 케이스가 많음
+
+-- 주문 테이블에서 상품의 총 판매 개수 검색
+SELECT SUM(amount) FROM orders ; 
+SELECT * FROM orders ; 
+
+-- 주문 테이블에서 총 판매 개수 검색 + 의미있는 열이름으로 변경 (total_sales)
+SELECT SUM(amount) AS 'total_sales' FROM orders;
+
+-- 주문 테이블에서 총 판매 개수, 평균 판매 개수, 상품 최저가, 상품 최고가 검색
+-- avg_amount, min_price, max_price
+SELECT SUM(amount), AVG(amount) AS avg_amount, MIN(price) AS min_price, MAX(price) AS max_price FROM orders;
+    
+-- 주문 테이블에서 총 주문 건수 (= 튜플 개수)
+SELECT COUNT(*) FROM orders;
+
+-- 주문 테이블에서 주문한 고객 수 (중복 없이)
+SELECT COUNT(DISTINCT custid) FROM orders;
+
+-- <GROUP BY>
+-- "~별로~"
+
+-- 고객별로 주문한 주문 건수 구하기 
+SELECT custid,COUNT(*) FROM orders GROUP BY custid;
+
+-- 고객별로 주문한 상품 총 수량 구하기
+SELECT custid, SUM(amount) FROM orders GROUP BY custid;
+
+-- 고객별로 주문한 상품 총 주문액 구하기
+SELECT custid, SUM(amount* price) FROM orders GROUP BY custid;
+
+-- 상품별 판매 개수 구하기
+SELECT  prodname, SUM(amount) FROM orders GROUP BY prodname;
+
+-- <HAVING>
+-- GROUP BY 절 이후 추가 조건
+
+-- 총 주문액이 10000원 이상인 고객에 대해 고객별로 주문한 상품 총 수량 구하기
+SELECT custid, SUM(amount), SUM(price*amount) FROM orders 
+		GROUP BY custid 
+        HAVING SUM(amount* price) >=10000; 
+
+-- WHERE 과의 차이?
+-- HAVING: 그룹에 대한 필터링(GROUP BY와 같이 씀). 집계함수와 함께 사용 가능
+-- WHERE: 각 행 필터링. 집계함수 쓸 수 있으나 HAVING처럼 자유롭게 쓸 수 x
+
+-- 총 주문액이 10000원 이상인 고객에 대해 고객별로 주문한 상품 총 수량 구하기
+SELECT custid, SUM(amount), SUM(amount*price) FROM orders
+		WHERE custid!="bunny"
+		GROUP BY custid HAVING SUM(amount* price) >=10000; 
+
+-- GROUP BY 주의 사항
+-- SELECT 절에서 GROUP BY에서 사용한 속성, 집계함수만 사용 가능
+SELECT custid, COUNT(*) FROM orders GROUP BY custid;
+
 -- set FOREIGN_KEY_CHECKS=0;
 truncate table cstmr;
 truncate table orders;
+

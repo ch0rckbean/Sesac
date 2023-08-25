@@ -72,6 +72,7 @@ app.get("/comment/:id", (req, res) => {
   res.render("comment", { comment: comments[cmtId - 1] });
 });
 
+//params 여러개 쓰기
 app.get("/test/:id/:name", (req, res) => {
   console.log(req.params);
   res.send("test res success!");

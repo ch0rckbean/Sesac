@@ -1,3 +1,5 @@
+//경로와 연결 될 함수 내용 정의
+
 // // (임시) DB로부터 받아온 댓글 목록
 // const comments = [
 //   {
@@ -40,7 +42,6 @@ exports.comment = (req, res) => {
   const cmtId = Number(req.params.id);
   const comments = Comment.getCommentAll(); //댓글 목록 배열
 
-  //2.
   if (!comments[cmtId - 1]) {
     res.render("404");
   }

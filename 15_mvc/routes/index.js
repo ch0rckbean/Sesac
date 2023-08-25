@@ -57,7 +57,9 @@ const router = express.Router();
 //   res.render("comment", { comment: comments[cmtId - 1] });
 // });
 
-router.get("/", controller.main);
+///////////////////////////
+// 기본 경로: localhost:PORT/user
+// router.get("/", controller.main);
 router.get("/comments", controller.comments);
 router.get("/comment/:id", controller.comment);
 

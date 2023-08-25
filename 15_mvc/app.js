@@ -12,9 +12,11 @@ app.use(express.json());
 const indexRouter = require("./routes/index");
 
 //첫번째 인자 경로에 온 거 두번째 인자로 넘기겠다.
-//indexRouter에서의 기본 경로- localhost:PORT/
+//indexRouter에서의 기본 경로- localhost:PORT/user
 app.use("/", indexRouter);
-
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
 app.get("*", (req, res) => {
   console.log(404);
   res.render("404");

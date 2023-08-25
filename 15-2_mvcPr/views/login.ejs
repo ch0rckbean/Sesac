@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>pr_login by Axios POST</title>
+  </head>
+  <body>
+    <h1>pr_login by Axios POST</h1>
+    <form name="login">
+      ID<input type="text" name="id" /> PW<input type="password" name="pw" />
+      <button type="button" onclick="axiosPost()">LOGIN</button>
+    </form>
+    <div class="result"></div>
+    <script>
+      const form = document.forms["login"];
+      const result = document.querySelector(".result");
+
+      function axiosPost() {
+        const info = {
+          id: form.id.value,
+          pw: form.pw.value,
+        };
+        const { id, pw } = info;
+
+        try {
+          if (!form.id.value & !form.pw.value) {
+            result.innerText = "ID와 PW는 필수 입력값입니다.";
+          } else {
+            axios({
+              method: "post",
+              url: "pr_loginResult",
+              data: info,
+            }).then(function (response) {
+              const { data } = response;
+              //console.log(data.state);
+              const { state } = data;
+              //console.log(state);
+
+              if (state === "Success") {
+                result.innerText = "로그인에 성공했습니다.";
+                result.style.color = "blue";
+              } else if (state === "Fail") {
+                result.innerText = "로그인에 실패했습니다.";
+                result.style.color = "red";
+              }
+            });
+          }
+        } catch (err) {
+          result.innerText = err;
+        }
+      }
+    </script>
+  </body>
+</html>

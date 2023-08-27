@@ -59,7 +59,7 @@ const router = express.Router();
 
 ///////////////////////////
 // 기본 경로: localhost:PORT/user
-// router.get("/", controller.main);
+router.get("/", controller.main);
 router.get("/comments", controller.comments);
 router.get("/comment/:id", controller.comment);
 

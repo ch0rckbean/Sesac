@@ -7,20 +7,11 @@ app.set("/views", express.static(__dirname + "/views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.render("login");
+const indexRouter = require("./routes/router");
+app.use("/", indexRouter);
+app.get("*", (req, res) => {
+  console.log(404);
 });
-
-// const realId = "myId";
-// const realPw = "myPw";
-
-// app.post("/pr_loginResult", (req, res) => {
-//   if ((req.body.id == realId) & (req.body.pw === realPw)) {
-//     res.send({ state: "Success" });
-//   } else {
-//     res.send({ state: "Fail" });
-//   }
-// });
 
 app.listen(PORT, () => {
   console.log("Server Opened");

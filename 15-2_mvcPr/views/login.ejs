@@ -9,13 +9,13 @@
   </head>
   <body>
     <h1>pr_login by Axios POST</h1>
-    <form name="login">
+    <form name="loginForm">
       ID<input type="text" name="id" /> PW<input type="password" name="pw" />
       <button type="button" onclick="axiosPost()">LOGIN</button>
     </form>
     <div class="result"></div>
     <script>
-      const form = document.forms["login"];
+      const form = document.forms["loginForm"];
       const result = document.querySelector(".result");
 
       function axiosPost() {
@@ -31,7 +31,7 @@
           } else {
             axios({
               method: "post",
-              url: "pr_loginResult",
+              url: "/loginForm",
               data: info,
             }).then(function (response) {
               const { data } = response;

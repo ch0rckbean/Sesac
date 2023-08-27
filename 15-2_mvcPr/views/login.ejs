@@ -11,14 +11,18 @@
     <h1>pr_login by Axios POST</h1>
     <form name="loginForm">
       ID<input type="text" name="id" /> PW<input type="password" name="pw" />
-      <button type="button" onclick="axiosPost()">LOGIN</button>
+      <!-- <button type="button" onclick="axiosPost()">LOGIN</button> -->
+      <!-- 선택실습 -->
+      <!-- userName <input type="text" name="userName"/> -->
+      <button type="button" onclick="axiosPost2()">LOGIN</button>
     </form>
     <div class="result"></div>
     <script>
       const form = document.forms["loginForm"];
       const result = document.querySelector(".result");
 
-      function axiosPost() {
+      //////////필수 실습
+      /*function axiosPost() {
         const info = {
           id: form.id.value,
           pw: form.pw.value,
@@ -41,6 +45,44 @@
 
               if (state === "Success") {
                 result.innerText = "로그인에 성공했습니다.";
+                result.style.color = "blue";
+              } else if (state === "Fail") {
+                result.innerText = "로그인에 실패했습니다.";
+                result.style.color = "red";
+              }
+            });
+          }
+        } catch (err) {
+          result.innerText = err;
+        }
+      } */
+
+      ///////////////////선택실습
+      function axiosPost2() {
+        const info = {
+          id: form.id.value,
+          pw: form.pw.value,
+        };
+        const { id, pw } = info;
+
+        try {
+          if (!form.id.value & !form.pw.value) {
+            result.innerText = "ID와 PW는 필수 입력값입니다.";
+          } else {
+            axios({
+              method: "post",
+              url: "/loginForm",
+              data: info,
+            }).then(function (response) {
+              const { data } = response;
+              //console.log(data.state);
+              const { state, userName } = data;
+              //console.log(state);
+              console.log(userName);
+              //response로 parameter들을 받아오므로 구조분해 할당 해야 값이 들어옴
+
+              if (state === "Success") {
+                result.innerText = `${userName}님 환영합니다.`;
                 result.style.color = "blue";
               } else if (state === "Fail") {
                 result.innerText = "로그인에 실패했습니다.";

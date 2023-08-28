@@ -2,5 +2,10 @@ const express = require("express");
 const controller = require("../controller/Cvisitor");
 const router = express.Router();
 
-router.get("/visitor", controller.visitor);
+// 기본주소: localhost:PORT
+router.get("/", controller.main);
+//방명록 전체 보기
+router.get("/visitors", controller.getVisitors);
+//CREATE: 방명록 하나 추가
+router.post("/visitor");
 module.exports = router;

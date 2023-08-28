@@ -13,8 +13,10 @@ CREATE TABLE visitor (
 
 INSERT INTO visitor VALUES
 (1, "홍길동","내가 왔다."),
-(2, "이찬혁", "으라차차"),
-(3, "액션가면","싸우자");
+(2, "이찬혁", "으라차차");
+INSERT INTO visitor VALUES (3, "액션가면","싸우자");
+INSERT INTO visitor VALUES (NULL, "짱구","액션가면 변신!");
+
 
 SELECT * FROM visitor;
 

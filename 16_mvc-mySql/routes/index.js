@@ -10,4 +10,7 @@ router.get("/visitors", controller.getVisitors);
 // CREATE: 방명록 하나 추가
 router.post("/visitor", controller.postVisitor);
 
+// DELETE: 방명록 하나 삭제
+router.delete("/visitor", controller.deleteVisitor);
+
 module.exports = router;

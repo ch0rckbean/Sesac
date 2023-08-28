@@ -1,2 +1,17 @@
-const visitor = require("../model/Visitor");
-exports.visitor = (req, res) => {};
+const Visitor = require("../model/Visitor");
+
+exports.main = (req, res) => {
+  res.render("index");
+};
+
+exports.getVisitors = (req, res) => {
+  // 이전 코드
+  // res.render("visitor", { data: Visitor.getVisitors() });
+
+  //이후 코드
+  // console.log(Visitor.getVisitors());
+  Visitor.getVisitors((result) => {
+    console.log("controller >>", result);
+    res.render("visitor", { data: result });
+  });
+};

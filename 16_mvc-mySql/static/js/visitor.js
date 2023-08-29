@@ -44,7 +44,7 @@ function createVisitor() {
 }
 
 function deleteVisitor(obj, id) {
-  console.log(obj, id);
+  console.log("obj, id ", obj, id); //버튼 요소, id
   if (!confirm("정말 삭제베리?")) {
     return;
   }

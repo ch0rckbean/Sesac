@@ -40,6 +40,17 @@ exports.postVisitor = (data, callback) => {
       }
       console.log("model >> ", rows);
       callback(rows.insertId);
+      //rows 출력해보면
+      /*OkPacket {
+        fieldCount: 0,
+        affectedRows: 1,
+        insertId: 6,
+        serverStatus: 2,
+        warningCount: 0,
+        message: '',
+        protocol41: true,
+        changedRows: 0
+      }*/
     }
   );
 };

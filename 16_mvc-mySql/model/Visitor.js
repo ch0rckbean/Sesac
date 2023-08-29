@@ -68,9 +68,9 @@ exports.deleteVisitor = (id, callback) => {
 
 exports.updateVisitor = (data, callback) => {
   const { id, name, comment } = data;
-  console.log("ee", data);
+  console.log("data ", data);
   conn.query(
-    `UPDATE visitor SET name="${name}", comment="${comment}" WHERE id=${insertId}`,
+    `UPDATE visitor SET name="${name}", comment="${comment}" WHERE id=${id}`,
     (err, rows) => {
       if (err) {
         throw err;

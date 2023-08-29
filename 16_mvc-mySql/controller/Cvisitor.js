@@ -36,8 +36,9 @@ exports.deleteVisitor = (req, res) => {
 };
 
 exports.updateVisitor = (req, res) => {
-  console.log("req.body", req.body);
-  const { name, comment } = req.body;
+  // console.log("req: ", req);
+  console.log("req.body", req.body); //id가 Visitor에 빈 값으로 전달 됨 why?
+  const { id, name, comment } = req.body;
 
   Visitor.updateVisitor(req.body, (insertId) => {
     console.log("controller >> ", insertId);

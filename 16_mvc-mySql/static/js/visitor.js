@@ -72,7 +72,7 @@ function updateVisitor1(obj, id) {
   // 1) 등록 버튼 없애고 변경/취소 버튼 구현
   const btnGroup = document.querySelector("#button-group");
   const updateBtns = `
-          <button type="button" onclick="updateVisitor2()">변경</button>
+          <button type="button" onclick="updateVisitor2(id)">변경</button>
           <button type="button" onclick="cancelUpdate()" >취소</button>`;
   btnGroup.innerHTML = updateBtns;
 

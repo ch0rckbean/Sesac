@@ -41,6 +41,7 @@ exports.updateVisitor = (req, res) => {
 
   Visitor.updateVisitor(req.body, (insertId) => {
     console.log("controller >> ", insertId);
+    // console.log("controller >> ", req.body); //id 비어있음
     res.send({ id: insertId, name: name, comment: comment });
   });
 };

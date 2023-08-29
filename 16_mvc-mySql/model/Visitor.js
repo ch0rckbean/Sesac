@@ -57,7 +57,7 @@ exports.postVisitor = (data, callback) => {
 
 exports.deleteVisitor = (id, callback) => {
   console.log("model >> ", id); //프론트에서 알려준 삭제할 데이터의 PK
-  conn.query(`DELETE FROM visitor WHERE id"=${id}`, (err, rows) => {
+  conn.query(`DELETE FROM visitor WHERE id=${id}`, (err, rows) => {
     if (err) {
       throw err;
     }
@@ -67,14 +67,15 @@ exports.deleteVisitor = (id, callback) => {
 };
 
 exports.updateVisitor = (data, callback) => {
-  const { name, comment } = data;
+  const { id, name, comment } = data;
+  console.log("ee", data);
   conn.query(
     `UPDATE visitor SET name="${name}", comment="${comment}" WHERE id=${insertId}`,
     (err, rows) => {
       if (err) {
         throw err;
       }
-      console.log("model >> ", rows.insertId);
+      console.log("model >> ", rows);
       callback(rows.insertId);
     }
   );

@@ -68,14 +68,14 @@ exports.deleteVisitor = (id, callback) => {
 
 exports.updateVisitor = (data, callback) => {
   const { id, name, comment } = data;
-  console.log("data ", data);
+  console.log("data", data);
   conn.query(
     `UPDATE visitor SET name="${name}", comment="${comment}" WHERE id=${id}`,
     (err, rows) => {
       if (err) {
         throw err;
       }
-      console.log("model >> ", rows);
+      console.log("model >> ", rows.insertId);
       callback(rows.insertId);
     }
   );

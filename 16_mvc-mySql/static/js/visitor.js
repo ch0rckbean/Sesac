@@ -113,9 +113,33 @@ function updateVisitor2(id) {
       comment: form.comment.value,
     },
   }).then((res) => {
+    // table의 값 수정값으로 변경
+    const updatedVisitor = `
+      <tr id="tr_${id}">
+        <td>${id}</td>
+        <td>${form.name.value}</td>
+        <td>${form.comment.value}</td>
+        <td>
+            <button type="button" onclick="updateVisitor1(this,${id})">
+              수정
+            </button>
+        </td>
+        <td>
+          <button type="button" onclick="deleteVisitor(this, ${id})">
+            삭제
+          </button>
+        </td>
+      </tr>
+      `;
+    const tr = document.querySelector(`#tr_${id}`);
+    tr.innerHTML = updatedVisitor;
     alert("수정 성공!");
+    // button-group 원상태로
     btnGroup.innerHTML =
       '<button type="button" onclick="createVisitor()">등록</button>';
+    //form 값 초기화
+    form.name.value = "";
+    form.comment.value = "";
     console.log("changed name, comment", name, comment);
   });
 }

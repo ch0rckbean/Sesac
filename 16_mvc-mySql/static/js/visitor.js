@@ -65,20 +65,29 @@ function deleteVisitor(obj, id) {
 
 function updateVisitor1(obj, id) {
   //수정 버튼 클릭 시
-  // 등록 버튼 없애고 변경/취소 버튼 구현
-  // form들에 id에 해당하는 내용 채워넣기
+  // - 등록 버튼 없애고 변경/취소 버튼 구현
+  // - form들에 id에 해당하는 내용 채워넣기
 
-  console.log("id", obj, id);
+  console.log("id", id);
+  // 1) 등록 버튼 없애고 변경/취소 버튼 구현
   const btnGroup = document.querySelector("#button-group");
   const updateBtns = `
-          <button type="button" onclick="updateVisitor()2">변경</button>
+          <button type="button" onclick="updateVisitor2()">변경</button>
           <button type="button" onclick="cancelUpdate()" >취소</button>`;
   btnGroup.innerHTML = updateBtns;
 
+  // 2) form들에 id에 해당하는 내용 채워넣기
   const form = document.forms["visitor-form"];
-  form.name.value = obj.previousSibling.textContent;
-  form.comment.value = obj.parentElement.nextSibling.textContent;
-  console.log(obj.previousSibling.nodeValue);
+  form.name.value =
+    obj.parentElement.previousElementSibling.previousElementSibling.textContent;
+  form.comment.value = obj.parentElement.previousElementSibling.textContent;
+  // console.log(obj.parentElement.previousElementSibling.textContent);
+
+  //** Node와 Element는 다름
+  //https://hianna.tistory.com/712
+  // form.name.value = obj.previousSibling.textContent;
+  // form.comment.value = obj.parentElement.nextSibling.textContent;
+  // console.log(obj.parentElement.childNodes[0]);
 }
 
 function cancelUpdate() {
@@ -92,7 +101,7 @@ function cancelUpdate() {
 
 function updateVisitor2(id) {
   //변경 버튼 클릭시
-  console.log(id);
+  console.log("수정 후 변경 버튼 클릭");
   const form = document.forms["visitor-form"];
   axios({
     method: "patch",
@@ -106,7 +115,6 @@ function updateVisitor2(id) {
     alert("수정 성공!");
     btnGroup.innerHTML =
       '<button type="button" onclick="createVisitor()">등록</button>';
+    console.log("changed name, comment", name, comment);
   });
-
-  console.log("name, comment", name, comment);
 }

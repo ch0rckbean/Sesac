@@ -37,10 +37,10 @@ exports.deleteVisitor = (req, res) => {
 
 exports.updateVisitor = (req, res) => {
   console.log("req.body", req.body);
+  const { name, comment } = req.body;
 
   Visitor.updateVisitor(req.body, (insertId) => {
     console.log("controller >> ", insertId);
-    const { name, comment } = req.body;
     res.send({ id: insertId, name: name, comment: comment });
   });
 };

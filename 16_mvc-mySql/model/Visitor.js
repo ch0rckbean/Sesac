@@ -65,3 +65,18 @@ exports.deleteVisitor = (id, callback) => {
     callback(true); //삭제 성공 의미
   });
 };
+
+exports.updateVisitor = (data, callback) => {
+  console.log("model >> ", data);
+  const { id, name, comment } = data;
+  conn.query(
+    `UPDATE visitor SET name=${name}, comment=${comment} WHERE id=${id}`
+  ),
+    (err, rows) => {
+      if (err) {
+        throw err;
+      }
+    };
+  console.log("model >> ", rows);
+  callback(rows.insertId);
+};

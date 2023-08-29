@@ -58,9 +58,55 @@ function deleteVisitor(obj, id) {
     },
   }).then((res) => {
     console.log("delete /visitor 요청에 대한 응답 ", res.data);
-
     alert("삭제 성공!");
-
     obj.parentElement.parentElement.remove();
   });
+}
+
+function updateVisitor1(obj, id) {
+  //수정 버튼 클릭 시
+  // 등록 버튼 없애고 변경/취소 버튼 구현
+  // form들에 id에 해당하는 내용 채워넣기
+
+  console.log("id", obj, id);
+  const btnGroup = document.querySelector("#button-group");
+  const updateBtns = `
+          <button type="button" onclick="updateVisitor()2">변경</button>
+          <button type="button" onclick="cancelUpdate()" >취소</button>`;
+  btnGroup.innerHTML = updateBtns;
+
+  const form = document.forms["visitor-form"];
+  form.name.value = obj.previousSibling.textContent;
+  form.comment.value = obj.parentElement.nextSibling.textContent;
+  console.log(obj.previousSibling.nodeValue);
+}
+
+function cancelUpdate() {
+  console.log("수정 취소");
+  btnGroup.innerHTML =
+    '<button type="button" onclick="createVisitor()">등록</button>';
+  const form = document.forms["visitor-form"];
+  form.name.value = "";
+  form.comment.value = "";
+}
+
+function updateVisitor2(id) {
+  //변경 버튼 클릭시
+  console.log(id);
+  const form = document.forms["visitor-form"];
+  axios({
+    method: "patch",
+    url: "/visitor",
+    data: {
+      id: id,
+      name: form.name.value,
+      comment: form.comment.value,
+    },
+  }).then((res) => {
+    alert("수정 성공!");
+    btnGroup.innerHTML =
+      '<button type="button" onclick="createVisitor()">등록</button>';
+  });
+
+  console.log("name, comment", name, comment);
 }

@@ -15,4 +15,6 @@ router.post("/visitor", controller.postVisitor);
 // DELETE: 방명록 하나 삭제
 router.delete("/visitor", controller.deleteVisitor);
 
+// UPDATE: 방명록 내용 수정
+router.patch("/visitor", controller.updateVisitor);
 module.exports = router;

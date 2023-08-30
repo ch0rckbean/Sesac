@@ -30,20 +30,28 @@ exports.doSignup = (req, res) => {
   console.log("req.body | doSignup ", req.body);
   // console.log(Object.values(req.body)[0]);
 
-  // for (let i = 0; i < Object.keys(req.body).length; i++) {
-  //   if (Object.values(req.body)[i].length > 0) {
   User.doSignup(req.body, (data) => {
-    console.log("data | CUser.js ", data);
+    console.log("data | doSignup | CUser.js ", data);
+    if (data === "Fail") {
+      return res.send({ state: "Fail" });
+    }
     return res.send({ state: "Success", res: data });
   });
 };
-//   }
-//   return res.send({ state: "Fail" });
-// };
 
 // 로그인
 exports.doSignin = (req, res) => {
   console.log("로그인 버튼 클릭");
   console.log("req.body | doSignin ", req.body);
-  res.send("hey");
+  // console.log(Object.values(req.body).length);
+
+  User.doSignin(req.body, (data) => {
+    console.log("req.body | doSignin | Cuser.js", req.body);
+    console.log("data | doSignin | Cuser.js", data);
+    if (data == "Fail") {
+      return res.send({ state: "Fail" });
+    }
+    // return res.send({ id: req.body.id, pw: req.body.pw, state: "Success" });
+    return res.send({ id: data.id, pw: data.pw, state: "Success" });
+  });
 };

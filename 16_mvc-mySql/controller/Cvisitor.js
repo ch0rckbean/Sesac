@@ -46,3 +46,25 @@ exports.updateVisitor = (req, res) => {
     res.send({ id: insertId, name: name, comment: comment });
   });
 };
+
+///////////////// UPDATE 다른 코드
+exports.getVisitor = (req, res) => {
+  // console.log(req.query); //{} : GET /visitor?id=n 쿼리스트링 썼을 때
+  console.log(req.params); //{id:n} : GET /visitor/:id
+  const { id } = req.params;
+
+  Visitor.getVisitor(id, (result) => {
+    console.log(result);
+    // result: Model의 Visitor에서 넘기는 getVisitor callback(rows)의 rows
+    res.send(result);
+  });
+};
+
+exports.upVisitor = (req, res) => {
+  console.log(req.body); //{id:00, name:00 , comment:00}
+
+  Visitor.upVisitor(req.body, () => {
+    //result: 바뀐 값
+    res.send({ isUpdated: true });
+  });
+};

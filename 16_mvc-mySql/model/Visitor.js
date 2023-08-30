@@ -18,7 +18,7 @@ const conn = mysql.createConnection({
 });
 
 exports.getVisitors = (callback) => {
-  conn.query("SELECT * FROM visitor", (err, rows) => {
+  conn.query(`SELECT * FROM visitor`, (err, rows) => {
     if (err) {
       throw err;
     }
@@ -33,7 +33,8 @@ exports.postVisitor = (data, callback) => {
   // - callback: query 실행 후 호출할 함수
 
   conn.query(
-    `INSERT INTO visitor VALUES(NULL, "${data.name}", "${data.comment}")`,
+    `INSERT INTO visitor VALUES(NULL, "${data.name}", "${data.comment}"); 
+    `,
     (err, rows) => {
       if (err) {
         throw err;
@@ -79,4 +80,28 @@ exports.updateVisitor = (data, callback) => {
       callback(rows.insertId);
     }
   );
+};
+
+////////////////// UPDATE 다른 코드
+exports.getVisitor = (id, callback) => {
+  conn.query(`SELECT * FROM visitor WHERE id=${id}`),
+    (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      console.log("rows ", rows);
+      callback(rows[0]);
+    };
+};
+
+exports.upVisitor = (upData, callback) => {
+  const { id, name, comment } = upData;
+  const sql = `UPDATE visitor SET name="${name}", comment="${comment}" WHERE id=${id}`;
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    console.log(rows);
+    callback();
+  });
 };

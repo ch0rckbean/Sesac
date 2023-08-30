@@ -19,24 +19,34 @@ exports.doSignup = (data, cb) => {
       if (err) {
         throw err;
       }
+      // console.log("data | doSignup | User.js", data);
       console.log("row | doSignup | User.js", row);
-      cb(row);
+      for (let i = 0; i < Object.keys(data).length; i++) {
+        if (Object.values(data)[i].length > 0) {
+          // console.log("ss", Object.values(data).length);
+          cb(row);
+        } else {
+          cb("Fail");
+        }
+      }
     }
   );
 };
 
 //** 로그인/
 exports.doSignin = (data, cb) => {
+  console.log(data);
   conn.query(
-    `SELECT * FROM user WHERE id=${id} AND password=%{pw}`,
+    `SELECT * FROM user WHERE userid="${data.id}" AND pw="${data.pw}"`,
     (err, row) => {
       if (err) {
         throw err;
       }
-      console.log("signIn | doSignin | User.js", row);
       if (row.length > 0) {
-        console.log("signIn | doSignin | User.js", row);
+        console.log("row | doSignin | User.js", row);
         cb(row);
+      } else {
+        cb("Fail");
       }
     }
   );

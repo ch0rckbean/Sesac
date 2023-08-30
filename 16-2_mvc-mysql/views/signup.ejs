@@ -37,10 +37,10 @@
             console.log("res| register | signup.ejs", res);
             console.log(state);
             if (state === "Success") {
-              console.log("회원가입 성공!");
+              alert("회원가입 성공!");
               document.location.href = "/user/signin";
             } else if (state === "Fail") {
-              console.log("회원가입 실패!");
+              alert("정보를 다시 입력해주세요!");
             }
           });
         } catch (err) {

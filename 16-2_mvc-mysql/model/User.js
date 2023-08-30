@@ -8,3 +8,17 @@ const conn = mysql.createConnection({
   password: "1234",
   database: "sesac",
 });
+
+//** 회원가입
+exports.doSignup = (data, cb) => {
+  conn.query(
+    `INSERT INTO user(userid, name, pw) VALUES (${id},${pw},${nickname})`,
+    (err, row) => {
+      if (err) {
+        throw err;
+      }
+      console.log("signUp | doSiginup | User.js", row);
+      cb(row);
+    }
+  );
+};

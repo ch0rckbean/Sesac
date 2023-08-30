@@ -18,7 +18,35 @@
     <script>
       // TODO: [Register] 버튼 클릭시 서버에 회원가입 요청하기
       // POST /user/signup
-      function register() {}
+      function register() {
+        const form = document.forms["form_register"];
+
+        const info = {
+          id: form.userid.value,
+          pw: form.pw.value,
+          nickname: form.nickname.value,
+        };
+        try {
+          axios({
+            method: "post",
+            url: "/form_register",
+            data: info,
+          }).then(function (res) {
+            const { data } = res;
+            const { state } = data;
+            console.log("res.data | register | signup.ejs", res);
+            console.log(state);
+            if (state === "Success") {
+              console.log("회원가입 성공!");
+              document.location.href = "/user/signin";
+            } else if (state === "Fail") {
+              console.log("회원가입 실패!");
+            }
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      }
     </script>
   </body>
 </html>

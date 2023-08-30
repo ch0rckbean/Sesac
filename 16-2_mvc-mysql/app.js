@@ -13,13 +13,6 @@ app.use(express.json());
 const mainRouter = require("./routes/router");
 app.use("/", mainRouter);
 
-// 회원가입 페이지 이동 /user/signup
-// router.
-
-// 로그인 페이지 이동 /user/signin
-
-// 프로필 페이지 이동 /user/profile
-
 // TODO: 404 에러 처리
 app.get("*", (req, res) => {
   res.render("404");

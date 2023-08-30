@@ -29,10 +29,21 @@ exports.doSignup = (req, res) => {
   console.log("회원가입 버튼 클릭");
   console.log("req.body | doSignup ", req.body);
   // console.log(Object.values(req.body)[0]);
-  for (let i = 0; i < Object.keys(req.body).length; i++) {
-    if (Object.values(req.body)[i].length > 0) {
-      return res.send({ state: "Success", res: req.body });
-    }
-  }
-  return res.send({ state: "Fail" });
+
+  // for (let i = 0; i < Object.keys(req.body).length; i++) {
+  //   if (Object.values(req.body)[i].length > 0) {
+  User.doSignup(req.body, (data) => {
+    console.log("data | CUser.js ", data);
+    return res.send({ state: "Success", res: data });
+  });
+};
+//   }
+//   return res.send({ state: "Fail" });
+// };
+
+// 로그인
+exports.doSignin = (req, res) => {
+  console.log("로그인 버튼 클릭");
+  console.log("req.body | doSignin ", req.body);
+  res.send("hey");
 };

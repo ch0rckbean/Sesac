@@ -26,7 +26,24 @@
     <script>
       // TODO: [Login] 버튼 클릭시 서버에 로그인 요청하기
       // POST /user/signin
-      function login() {}
+      function login() {
+        const form = document.forms["form_login"];
+        const info = {
+          id: form.userid.value,
+          pw: form.pw.value,
+        };
+        try {
+          axios({
+            method: "post",
+            url: "/form_login",
+            data: info,
+          }).then(function (res) {
+            console.log("res | login |signin.ejs", res);
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      }
     </script>
   </body>
 </html>

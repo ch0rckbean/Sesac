@@ -15,5 +15,8 @@ router.get("/user/signin", controller.signin);
 router.get("/user/profile", controller.profile);
 
 // ** axios 연결
+//회원가입
 router.post("/form_register", controller.doSignup);
+//로그인
+router.post("/form_login", controller.doSignin);
 module.exports = router;

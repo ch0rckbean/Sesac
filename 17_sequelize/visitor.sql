@@ -1,4 +1,4 @@
--- Active: 1693295278594@@127.0.0.1@3306@pr1_ddl
+-- Active: 1692941351466@@127.0.0.1@3306@sesac
 -- 인코딩 다시 정의해서 생성
 SHOW DATABASES;
 -- 이모지, 특수 문자 사용할 수 있는 인코딩
@@ -11,11 +11,9 @@ CREATE TABLE visitor (
     comment MEDIUMTEXT 
 );
 
-INSERT INTO visitor VALUES
-(1, "홍길동","내가 왔다."),
-(2, "이찬혁", "으라차차");
-INSERT INTO visitor VALUES (3, "액션가면","싸우자");
-INSERT INTO visitor VALUES (NULL, "짱구","액션가면 변신!");
+
+INSERT INTO visitor VALUES (1, "액션가면","싸우자");
+INSERT INTO visitor VALUES (2, "짱구","액션가면 변신!");
 
 
 SELECT * FROM visitor;

@@ -1,70 +1,96 @@
-const Visitor = require("../model/Visitor");
+// const Visitor = require('../model/Visitor');
+const { Visitor } = require("../models"); // ../models/index.js
 
 exports.main = (req, res) => {
   res.render("index");
 };
 
-exports.getVisitors = (req, res) => {
-  // 이전 코드
-  // res.render("visitor", { data: Visitor.getVisitors() });
+// read all
+exports.getVisitors = async (req, res) => {
+  // [before]
+  // Visitor.getVisitors((result) => {
+  //   console.log('controller >>', result);
+  //   res.render('visitor', { data: result });
+  // });
 
-  //이후 코드
-  // console.log(Visitor.getVisitors());
-  Visitor.getVisitors((result) => {
-    console.log("controller >>", result);
-    res.render("visitor", { data: result });
-  });
+  // [after]
+  const result = await Visitor.findAll();
+  console.log("READ result ", result);
+  res.render("visitor", { data: result });
 };
 
-exports.postVisitor = (req, res) => {
-  console.log("req.body ", req.body);
+// CREATE
+exports.postVisitor = async (req, res) => {
+  // [before]
+  // console.log(req.body); // { name: xx, comment: yy }
+  // const { name, comment } = req.body;
 
-  Visitor.postVisitor(req.body, (insertId) => {
-    console.log("controller >> ", insertId);
-    res.send({ id: insertId, name: req.body.name, comment: req.body.comment });
+  // Visitor.postVisitor(req.body, (insertId) => {
+  //   console.log('controller >> ', insertId);
+  //   res.send({ id: insertId, name: name, comment: comment });
+  // });
+
+  // [after]
+  const { name, comment } = req.body;
+  const result = await Visitor.create({
+    name,
+    comment,
   });
+  console.log("CREATE result", result); // create메서드가 실행된 결과 (== insert 한 데이터 값)
+  res.send(result);
 };
 
-exports.deleteVisitor = (req, res) => {
-  console.log(req.body); //{id: nn}
+exports.deleteVisitor = async (req, res) => {
+  //[before]
+  // console.log(req.body); //{id: nn}
+  // const { id } = req.body;
+  // Visitor.deleteVisitor(id, (result) => {
+  //   console.log("controller >> ", result); //true
+  //   res.send(result); //res.send(true)
+  // });
   const { id } = req.body;
-
-  Visitor.deleteVisitor(id, (result) => {
-    console.log("controller >> ", result); //true
-    res.send(result); //res.send(true)
+  const result = await Visitor.destroy({
+    where: { id: id },
   });
+  console.log("DELETE result", result);
+  res.send(true);
 };
 
-exports.updateVisitor = (req, res) => {
-  // console.log("req: ", req);
-  console.log("req.body", req.body); //id가 Visitor에 빈 값으로 전달 됨 why?
-  const { id, name, comment } = req.body;
-
-  Visitor.updateVisitor(req.body, (insertId) => {
-    console.log("controller insertId >> ", insertId);
-    // console.log("controller >> ", req.body); //id 비어있음
-    res.send({ id: insertId, name: name, comment: comment });
-  });
-};
-
-///////////////// UPDATE 다른 코드
-exports.getVisitor = (req, res) => {
+// read one
+exports.getVisitor = async (req, res) => {
+  // [before]
   // console.log(req.query); //{} : GET /visitor?id=n 쿼리스트링 썼을 때
-  console.log(req.params); //{id:n} : GET /visitor/:id
-  const { id } = req.params;
+  // console.log(req.params); //{id:n} : GET /visitor/:id
+  // const { id } = req.params;
 
-  Visitor.getVisitor(id, (result) => {
-    console.log(result);
-    // result: Model의 Visitor에서 넘기는 getVisitor callback(rows)의 rows
-    res.send(result);
+  // Visitor.getVisitor(id, (result) => {
+  //   console.log(result);
+  //   res.send(result);
+  // });
+
+  // [after]
+  const { id } = req.params;
+  const result = await Visitor.findOne({
+    where: { id: id },
   });
+  console.log(result);
+  res.send(result);
 };
 
-exports.upVisitor = (req, res) => {
-  console.log(req.body); //{id:00, name:00 , comment:00}
+exports.upVisitor = async (req, res) => {
+  // [before]
+  // console.log(req.body); //{id:00, name:00 , comment:00}
+  // Visitor.upVisitor(req.body, () => {
+  //   res.send({ isUpdated: true });
+  // });
 
-  Visitor.upVisitor(req.body, () => {
-    //result: 바뀐 값
-    res.send({ isUpdated: true });
-  });
+  // [after]
+  // update(변경될 값, where절)
+  await Visitor.update(
+    { name: req.body.name, comment: req.body.comment },
+    {
+      where: { id: req.body.id },
+    }
+  );
+  res.send({ isUpdated: true });
 };

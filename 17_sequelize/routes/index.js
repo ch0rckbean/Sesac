@@ -16,11 +16,11 @@ router.post("/visitor", controller.postVisitor);
 router.delete("/visitor", controller.deleteVisitor);
 
 // UPDATE: 방명록 내용 수정
-router.patch("/visitor", controller.updateVisitor);
+// router.patch("/visitor", controller.updateVisitor);
 
 ///////////////// UPDATE 다른 코드
 // router.get("/visitor", controller.getVisitor);  //쿼리 스트링 썼을 때
-router.get("/visitor/:id", controller.getVisitor);
-router.patch("/visitor", controller.upVisitor);
+// router.get("/visitor/:id", controller.getVisitor);
+// router.patch("/visitor", controller.upVisitor);
 
 module.exports = router;

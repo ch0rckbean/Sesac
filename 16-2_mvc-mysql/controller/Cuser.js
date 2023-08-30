@@ -5,4 +5,11 @@ const User = require("../model/User");
 exports.main = (req, res) => {
   res.render("index");
 };
-// goHome
+
+// 회원가입
+exports.signup=(req,res)=>{
+  console.log(res.)
+}
+// 로그인
+
+// 프로필

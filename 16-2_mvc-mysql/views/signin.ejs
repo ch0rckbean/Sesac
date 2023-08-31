@@ -48,8 +48,9 @@
               document.location.href = "/user/profile";
             } else if (state === "Fail") {
               alert("로그인 실패ㅠㅠ");
-              form.userid.value = "";
-              form.pw.value = "";
+              //form.userid.value = "";
+              //form.pw.value = "";
+              form.reset();
             }
           });
         } catch (err) {

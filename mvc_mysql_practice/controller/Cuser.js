@@ -50,19 +50,19 @@ exports.editProfile = async (req, res) => {
   // User.editProfile(req.body, () => {
   //   res.send(true);
   // });
-  const result=await User.update(
-    {nickname:req.body.nickname, pw:req.body.pw},
-    {where: {id:req.body.userid}}, 
+  const result = await User.update(
+    { nickname: req.body.nickname, pw: req.body.pw },
+    { where: { id: req.body.userid } }
   );
-  res.send({true})
+  res.send(true);
 };
 
 exports.deleteProfile = async (req, res) => {
   // User.deleteProfile(req.body.id, () => {
   //   res.send(true);
   // });
-  const result=await User.destroy({
-    where:{id:req.body.id}
+  const result = await User.destroy({
+    where: { id: req.body.id },
   });
-  res.send(true)
+  res.send(true);
 };

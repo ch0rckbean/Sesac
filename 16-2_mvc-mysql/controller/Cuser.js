@@ -59,13 +59,24 @@ exports.doSignin = (req, res) => {
   });
 };
 
-// 프로필 - 회원정보 수정
+// 프로필 - 회원정보 보기
 exports.viewPro = (req, res) => {
+  console.log("회원정보 보기");
+  console.log("req.body | viewPro | Cuser.js", req.body);
+
+  User.viewPro(req.body, (data) => {
+    console.log("data | viewPro | Cuser.js", data);
+    res.render("profile", { data: data });
+  });
+};
+
+// 프로필 - 회원정보 수정
+exports.editPro = (req, res) => {
   console.log("회원정보 수정 버튼 클릭");
   console.log("req.body | editPro | Cuser.js", req.body);
 
-  User.viewPro(req.body, (data) => {
-    console.log("data | editPro | Cuser.js", req.body);
+  User.editPro(req.body, (data) => {
+    console.log("data | editPro | Cuser.js", data);
     res.send({ data: data });
   });
 };

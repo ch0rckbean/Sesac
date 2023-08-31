@@ -11,18 +11,16 @@ router.get("/", controller.main);
 router.get("/user/signup", controller.signup);
 // 로그인 페이지로 이동
 router.get("/user/signin", controller.signin);
-// 프로필 페이지로 이동
-router.get("/user/profile", controller.profile);
+// 프로필 페이지로 이동 - 회원정보 보기
+router.get("/user/profile", controller.viewPro);
 
 // ** axios 연결
 //회원가입
 router.post("/form_register", controller.doSignup);
 //로그인
-router.post("/form_login", controller.doSignin);
+router.post("/user/signin", controller.doSignin);
 //프로필 - 회원정보 수정
-router.post("/user/profile", controller.viewPro);
-// router.post("/user/profile/edit", controller.editPro);
-
+router.post("/user/profile/edit", controller.editPro);
 //프로필 - 회원탈퇴
 router.get("/user/profile/delete", controller.doDelete);
 module.exports = router;

@@ -27,15 +27,15 @@
       // TODO: [Login] 버튼 클릭시 서버에 로그인 요청하기
       // POST /user/signin
       function login() {
-        const form = document.forms["form_login"];
+        const form_login = document.forms["form_login"];
         const info = {
-          id: form.userid.value,
-          pw: form.pw.value,
+          id: form_login.userid.value,
+          pw: form_login.pw.value,
         };
         try {
           axios({
             method: "post",
-            url: "/form_login",
+            url: "/user/signin",
             data: info,
           }).then(function (res) {
             const { data } = res;
@@ -45,13 +45,15 @@
             console.log("res | login |signin.ejs", res);
             if (state === "Success") {
               alert("로그인 성공!");
-              form.submit();
+              let form_info = document.forms["form_info"];
+              form_info.userid.value = form_login.userid.value;
+              form_info.submit();
               document.location.href = "/user/profile";
             } else if (state === "Fail") {
               alert("로그인 실패ㅠㅠ");
               //form.userid.value = "";
               //form.pw.value = "";
-              form.reset();
+              form_login.reset();
             }
           });
         } catch (err) {

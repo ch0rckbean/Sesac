@@ -33,9 +33,11 @@ exports.doSignup = (req, res) => {
   User.doSignup(req.body, (data) => {
     console.log("data | doSignup | CUser.js ", data);
     if (data === "Fail") {
+      //model에서 받아온 row
       return res.send({ state: "Fail" });
+    } else {
+      return res.send({ state: "Success", res: data });
     }
-    return res.send({ state: "Success", res: data });
   });
 };
 
@@ -50,8 +52,11 @@ exports.doSignin = (req, res) => {
     console.log("data | doSignin | Cuser.js", data);
     if (data == "Fail") {
       return res.send({ state: "Fail" });
+    } else {
+      // return res.send({ id: req.body.id, pw: req.body.pw, state: "Success" });
+      return res.send({ id: data.id, pw: data.pw, state: "Success" });
     }
-    // return res.send({ id: req.body.id, pw: req.body.pw, state: "Success" });
-    return res.send({ id: data.id, pw: data.pw, state: "Success" });
   });
 };
+
+// 프로필

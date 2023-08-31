@@ -44,7 +44,7 @@ exports.doSignup = (req, res) => {
 // 로그인
 exports.doSignin = (req, res) => {
   console.log("로그인 버튼 클릭");
-  console.log("req.body | doSignin ", req.body);
+  console.log("req.body | doSignin | Cuser.js", req.body);
   // console.log(Object.values(req.body).length);
 
   User.doSignin(req.body, (data) => {
@@ -59,4 +59,23 @@ exports.doSignin = (req, res) => {
   });
 };
 
-// 프로필
+// 프로필 - 회원정보 수정
+exports.editPro = (req, res) => {
+  console.log("회원정보 수정 버튼 클릭");
+  console.log("req.body | editPro | Cuser.js", req.body);
+  console.log(req.params); //{id:n} : GET /visitor/:id
+  const { id } = req.params;
+
+  User.editPro(id, (data) => {
+    console.log("data | editPro | Cuser.js", data);
+    res.send({ data: data });
+  });
+};
+
+// 프로필 - 회원 탈퇴
+exports.doDelete = (req, res) => {
+  console.log("회원탈퇴 버튼 클릭");
+  console.log("req.body | doDelete | Cuser.js", req.body);
+  const { id } = req.body;
+  res.send(id);
+};

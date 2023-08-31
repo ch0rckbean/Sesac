@@ -13,22 +13,49 @@
       <input type="hidden" id="id" value="" />
       <!-- readonly: userid는 수정 불가능 (조건임) -->
       <input id="userid" type="text" name="userid" value="" readonly /><br />
+
       <label for="password">Password</label>
       <input id="password" type="password" name="pw" value="" required /><br />
       <label for="name">Name</label>
       <input id="name" type="text" name="name" value="" required /><br />
-      <button type="button" onclick="profileEdit();">Edit</button>
+      <button type="button" onclick="profileEdit()">Edit</button>
       <button type="button" onclick="profileDelete();">Delete</button>
     </form>
 
     <script>
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 수정 요청하기
       // POST /user/profile/edit
-      function profileEdit() {}
+
+      function profileEdit() {
+        const form = document.forms["form_profile"];
+
+        const info = {
+          id: form.userid.value,
+          pw: form.pw.value,
+          nickname: form.name.value,
+        };
+        try {
+          axios({
+            method: "patch",
+            url: "/form_profile",
+            data: info,
+          }).then(function (res) {
+            const { data } = res;
+            console.log("data", data);
+            console.log("res", res);
+            alert("수정 성공");
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      }
 
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 삭제 요청하기
       // POST /user/profile/delete
-      function profileDelete() {}
+      function profileDelete() {
+        alert("회원탈퇴 성공");
+        document.location.href = "/user";
+      }
     </script>
   </body>
 </html>

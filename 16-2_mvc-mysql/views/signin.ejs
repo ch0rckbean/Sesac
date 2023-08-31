@@ -45,6 +45,7 @@
             console.log("res | login |signin.ejs", res);
             if (state === "Success") {
               alert("로그인 성공!");
+              form.submit();
               document.location.href = "/user/profile";
             } else if (state === "Fail") {
               alert("로그인 실패ㅠㅠ");

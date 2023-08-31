@@ -19,4 +19,10 @@ router.get("/user/profile", controller.profile);
 router.post("/form_register", controller.doSignup);
 //로그인
 router.post("/form_login", controller.doSignin);
+//프로필 - 회원정보 수정
+router.get("/user/profile/edit", controller.doSignin);
+router.patch("/form_profile", controller.editPro);
+
+//프로필 - 회원탈퇴
+router.get("/user/profile/delete", controller.doDelete);
 module.exports = router;

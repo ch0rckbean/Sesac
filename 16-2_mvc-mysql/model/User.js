@@ -60,15 +60,30 @@ exports.doSignin = (data, cb) => {
   );
 };
 
-//** 프로필/
+//** 프로필 - 회원정보 수정
 exports.editPro = (data, cb) => {
   console.log(data);
   conn.query(
-    `ALTER TABLE user SET username="${data.nickname},pw="${data.pw}" `
+    `ALTER TABLE user SET username="${data.nickname}",pw="${data.pw}" WHERE id="${id}"`
   ),
     (err, row) => {
       if (err) {
         throw err;
+      } else {
+        cb(row);
+      }
+    };
+};
+
+//** 프로필 - 회원 탈퇴
+exports.editPro = (id, cb) => {
+  console.log(id);
+  conn.query(`DELETE FROM user WHERE id= "${id}"`),
+    (err, row) => {
+      if (err) {
+        throw err;
+      } else {
+        cb(row);
       }
     };
 };

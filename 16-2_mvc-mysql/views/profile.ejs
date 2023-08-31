@@ -73,8 +73,19 @@
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 삭제 요청하기
       // POST /user/profile/delete
       function profileDelete() {
-        alert("회원탈퇴 성공");
-        document.location.href = "/user";
+        const form = document.forms["form_profile"];
+
+        const info = {
+          id: form.id.value,
+        };
+        axios({
+          method: "post",
+          url: "user/profile/delete",
+          data: info,
+        }).then((res) => {
+          alert("회원탈퇴 성공");
+          document.location.href = "/user";
+        });
       }
     </script>
   </body>

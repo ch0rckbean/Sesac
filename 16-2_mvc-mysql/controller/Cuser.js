@@ -87,8 +87,7 @@ exports.doDelete = (req, res) => {
   console.log("req.body | doDelete | Cuser.js", req.body);
   const { id } = req.body;
 
-  User.deletePro(req.body, (data) => {
-    res.send(data);
+  User.deletePro(req.body, (id) => {
+    res.send({ id: id });
   });
-  res.send(id);
 };

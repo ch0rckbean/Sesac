@@ -61,6 +61,16 @@ exports.doSignin = (data, cb) => {
 };
 
 //** 프로필 - 회원정보 수정
+exports.viewPro = (userid, cb) => {
+  const sql = `SELECT * FROM user WHERE userid='${userid}' LIMIT 1`;
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    cb(rows);
+  });
+};
+
 exports.editPro = (data, cb) => {
   console.log(data);
   conn.query(
@@ -76,7 +86,7 @@ exports.editPro = (data, cb) => {
 };
 
 //** 프로필 - 회원 탈퇴
-exports.editPro = (id, cb) => {
+exports.deletePro = (id, cb) => {
   console.log(id);
   conn.query(`DELETE FROM user WHERE id= "${id}"`),
     (err, row) => {

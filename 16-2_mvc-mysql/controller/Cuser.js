@@ -60,14 +60,12 @@ exports.doSignin = (req, res) => {
 };
 
 // 프로필 - 회원정보 수정
-exports.editPro = (req, res) => {
+exports.viewPro = (req, res) => {
   console.log("회원정보 수정 버튼 클릭");
   console.log("req.body | editPro | Cuser.js", req.body);
-  console.log(req.params); //{id:n} : GET /visitor/:id
-  const { id } = req.params;
 
-  User.editPro(id, (data) => {
-    console.log("data | editPro | Cuser.js", data);
+  User.viewPro(req.body, (data) => {
+    console.log("data | editPro | Cuser.js", req.body);
     res.send({ data: data });
   });
 };
@@ -77,5 +75,9 @@ exports.doDelete = (req, res) => {
   console.log("회원탈퇴 버튼 클릭");
   console.log("req.body | doDelete | Cuser.js", req.body);
   const { id } = req.body;
+
+  User.deletePro(req.body, (data) => {
+    res.send(data);
+  });
   res.send(id);
 };

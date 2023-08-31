@@ -1,4 +1,4 @@
-const User = require("../model/User");
+const { User } = require("../models");
 
 exports.signup = (req, res) => {
   res.render("signup");
@@ -30,7 +30,8 @@ exports.postSignin = async (req, res) => {
   //     res.send(false);
   //   }
   // });
-  const result = await User.create({ result });
+  const { userid, pw } = req.body;
+  const result = await User.create({ userid, pw });
   console.log("postSignup", result);
   res.send(result);
 };

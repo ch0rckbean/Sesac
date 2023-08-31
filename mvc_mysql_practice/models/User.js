@@ -9,15 +9,15 @@ const User = (Sequelize, DataTypes) => {
         autoIncrement: true,
       },
       userid: {
-        type: DataTypes.VARCHAR(20),
+        type: DataTypes.STRING(20),
         allowNull: false,
       },
-      name: {
-        type: DataTypes.VARCHAR(10),
+      nickname: {
+        type: DataTypes.STRING(10),
         allowNull: false,
       },
       pw: {
-        type: DataTypes.VARCHAR(20),
+        type: DataTypes.STRING(20),
         allowNull: false,
       },
     },

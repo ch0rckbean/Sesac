@@ -28,6 +28,7 @@ exports.doSignup = (data, cb) => {
       //     //for문 내에 있어서 계속 ERR_HTTP_HEADERS_SENT 에러가 났었음 ㅠㅠ
       //   }
       if (
+        //한 필드라도 길이가 0이면 회원가입 실패
         Object.values(data)[0].length &
         Object.values(data)[1].length &
         Object.values(data)[2].length
@@ -60,12 +61,14 @@ exports.doSignin = (data, cb) => {
 };
 
 //** 프로필/
-// exports.editPro=(data,cb)=>{
-//   console.log(data);
-//   conn.query(`ALTER TABLE user SET username="${data.nickname},pw="${data.pw}" `),
-//   (err,row)=>{
-//     if(err){throw err}
-
-//   }
-
-// }
+exports.editPro = (data, cb) => {
+  console.log(data);
+  conn.query(
+    `ALTER TABLE user SET username="${data.nickname},pw="${data.pw}" `
+  ),
+    (err, row) => {
+      if (err) {
+        throw err;
+      }
+    };
+};

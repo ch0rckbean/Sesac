@@ -62,8 +62,8 @@ exports.doSignin = (req, res) => {
 // 프로필 - 회원정보 보기
 exports.viewPro = (req, res) => {
   console.log("회원정보 보기");
-  console.log("req.body | viewPro | Cuser.js", req.body);
 
+  console.log("req.body | viewPro | Cuser.js", req.body);
   User.viewPro(req.body, (data) => {
     console.log("data | viewPro | Cuser.js", data);
     res.render("profile", { data: data });

@@ -22,5 +22,5 @@ router.post("/user/signin", controller.doSignin);
 //프로필 - 회원정보 수정
 router.post("/user/profile/edit", controller.editPro);
 //프로필 - 회원탈퇴
-router.get("/user/profile/delete", controller.doDelete);
+router.post("/user/profile/delete", controller.doDelete);
 module.exports = router;

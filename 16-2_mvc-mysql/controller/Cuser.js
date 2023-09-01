@@ -63,6 +63,7 @@ exports.doSignin = (req, res) => {
 exports.viewPro = (req, res) => {
   console.log("회원정보 보기");
 
+  console.log("***************************************");
   console.log("req.body | viewPro | Cuser.js", req.body);
   User.viewPro(req.body, (data) => {
     console.log("data | viewPro | Cuser.js", data);
@@ -77,7 +78,7 @@ exports.editPro = (req, res) => {
 
   User.editPro(req.body, (data) => {
     console.log("data | editPro | Cuser.js", data);
-    res.send({ data: data });
+    res.send({ data: req.body });
   });
 };
 

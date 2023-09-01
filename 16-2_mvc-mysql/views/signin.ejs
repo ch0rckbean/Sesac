@@ -42,11 +42,13 @@
             console.log("state", state);
             console.log("data | login |signin.ejs", response.data);
             if (state === "Success") {
-              alert("로그인 성공!");
               let form_info = document.forms["form_info"];
+              console.log("1", form_login.userid.value);
               form_info.userid.value = form_login.userid.value;
+              console.log("2", form_info.userid.value);
+              alert("로그인 성공!");
               form_info.submit();
-              document.location.href = "/user/profile";
+              // document.location.href = "/user/profile";
             } else if (state === "Fail") {
               alert("로그인 실패ㅠㅠ");
               //form.userid.value = "";

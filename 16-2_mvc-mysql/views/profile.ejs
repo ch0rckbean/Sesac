@@ -57,10 +57,10 @@
               nickname: form.name.value,
             },
           }).then(function (res) {
-            const { data } = res;
-            console.log("data | profileEdit | Cuser.js", data);
-            console.log("res | profileEdit | Cuser.js", res);
-            alert("수정 성공");
+            //const { data } = res;
+            //console.log("data | profileEdit | profile.ejs", data);
+            console.log("res | profileEdit | profile.js", res);
+            alert("수정 성공!");
           });
         } catch (err) {
           console.log(err);
@@ -70,17 +70,15 @@
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 삭제 요청하기
       // POST /user/profile/delete
       function profileDelete() {
+        console.log("회원탈퇴 버튼 클릭");
         const form = document.forms["form_profile"];
 
-        const info = {
-          id: form.id.value,
-        };
         axios({
           method: "post",
-          url: "user/profile/delete",
-          data: info,
+          url: "/user/profile/delete",
+          data: form.id.value,
         }).then((res) => {
-          alert("회원탈퇴 성공");
+          alert("회원탈퇴 성공!");
           document.location.href = "/user";
         });
       }

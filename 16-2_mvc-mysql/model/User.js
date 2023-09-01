@@ -77,27 +77,28 @@ exports.viewPro = (data, cb) => {
 exports.editPro = (data, cb) => {
   console.log("data | editPro | User.js ", data);
   conn.query(
-    `UPDATE user SET name="${data.nickname}",pw="${data.pw}"  WHERE userid="${data.userid}" `
-  ),
+    `UPDATE user SET name="${data.nickname}",pw="${data.pw}"  WHERE userid="${data.userid}" `,
     (err, row) => {
       if (err) {
         throw err;
       } else {
-        console.log(row);
+        // console.log("row", row);
         cb(row);
       }
-    };
+    }
+  );
 };
 
 //** 프로필 - 회원 탈퇴
-exports.deletePro = (id, cb) => {
-  console.log(id);
-  conn.query(`DELETE FROM user WHERE id= "${id}"`),
-    (err, row) => {
-      if (err) {
-        throw err;
-      } else {
-        cb(row);
-      }
-    };
+exports.doDelete = (data, cb) => {
+  console.log("data", data); // { '13': '' }
+  // const {id}=data;
+  const id = Object.keys(data);
+  conn.query(`DELETE FROM user WHERE id= "${id}"`, (err, row) => {
+    if (err) {
+      throw err;
+    } else {
+      cb(row);
+    }
+  });
 };

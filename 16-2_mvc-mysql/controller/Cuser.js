@@ -73,22 +73,19 @@ exports.viewPro = (req, res) => {
 
 // 프로필 - 회원정보 수정
 exports.editPro = (req, res) => {
-  console.log("회원정보 수정 버튼 클릭");
   console.log("req.body | editPro | Cuser.js", req.body);
 
   User.editPro(req.body, (data) => {
     console.log("data | editPro | Cuser.js", data);
-    res.send({ data: data });
+    res.send(true);
   });
 };
 
 // 프로필 - 회원 탈퇴
 exports.doDelete = (req, res) => {
-  console.log("회원탈퇴 버튼 클릭");
   console.log("req.body | doDelete | Cuser.js", req.body);
-  const { id } = req.body;
-
-  User.deletePro(req.body, (id) => {
-    res.send({ id: id });
+  //front에서 받아온 hidden form의 값  { 'n': '' }
+  User.doDelete(req.body, (data) => {
+    res.send({ id: data });
   });
 };

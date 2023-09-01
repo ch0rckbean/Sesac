@@ -17,11 +17,11 @@ exports.signin = (req, res) => {
   console.log("로그인 페이지 이동");
   res.render("signin");
 };
-// 프로필
-exports.profile = (req, res) => {
-  console.log("프로필 페이지 이동");
-  res.render("profile");
-};
+// // 프로필
+// exports.profile = (req, res) => {
+//   console.log("프로필 페이지 이동");
+//   res.render("profile");
+// };
 
 //** axios 연결/
 // 회원가입

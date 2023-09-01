@@ -37,9 +37,10 @@
             method: "post",
             url: "/user/signin",
             data: info,
-          }).then((data) => {
+          }).then((response) => {
+            const { state } = response.data;
             console.log("state", state);
-            console.log("data | login |signin.ejs", data);
+            console.log("data | login |signin.ejs", response.data);
             if (state === "Success") {
               alert("로그인 성공!");
               let form_info = document.forms["form_info"];

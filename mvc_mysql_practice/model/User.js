@@ -36,7 +36,6 @@ exports.postProfile = (userid, cb) => {
     if (err) {
       throw err;
     }
-
     cb(rows);
   });
 };
@@ -47,7 +46,6 @@ exports.editProfile = (data, cb) => {
     if (err) {
       throw err;
     }
-
     cb(rows);
   });
 };

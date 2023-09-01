@@ -64,10 +64,10 @@ exports.viewPro = (req, res) => {
   console.log("회원정보 보기");
 
   console.log("***************************************");
-  console.log("req.body | viewPro | Cuser.js", req.body);
-  User.viewPro(req.body, (data) => {
-    console.log("data | viewPro | Cuser.js", data);
-    res.render("profile", { data: data });
+  console.log("req.body | viewPro | Cuser.js", req.body); //{ userid: 'd' }
+  User.viewPro(req.body, (result) => {
+    console.log("result | viewPro | Cuser.js", result); //[ RowDataPacket { id: 5, userid: 'd', name: 'd', pw: 'd' } ]
+    res.render("profile", { data: result[0] }); //인덱싱 중요!!!!
   });
 };
 
@@ -78,7 +78,7 @@ exports.editPro = (req, res) => {
 
   User.editPro(req.body, (data) => {
     console.log("data | editPro | Cuser.js", data);
-    res.send({ data: req.body });
+    res.send({ data: data });
   });
 };
 

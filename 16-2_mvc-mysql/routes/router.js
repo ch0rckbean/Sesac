@@ -11,7 +11,7 @@ router.get("/", controller.main);
 router.get("/user/signup", controller.signup);
 // 로그인 페이지로 이동
 router.get("/user/signin", controller.signin);
-// 프로필 페이지로 이동 - 회원정보 보기
+// 프로필 페이지로 이동 - 회원정보 보기 => viewPro에서 profile render하므로 없어도 됨
 // router.get("/user/profile", controller.viewPro);
 // 프로필 페이지로 이동 - 회원정보 보내기
 router.post("/user/profile", controller.viewPro);

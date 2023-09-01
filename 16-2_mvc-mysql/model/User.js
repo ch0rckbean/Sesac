@@ -61,26 +61,29 @@ exports.doSignin = (data, cb) => {
 };
 
 //** 프로필 - 회원정보 보기
-exports.viewPro = (userid, cb) => {
-  const sql = `SELECT * FROM user WHERE userid='${userid}' LIMIT 1`;
+exports.viewPro = (data, cb) => {
+  const sql = `SELECT * FROM user WHERE userid="${data.userid}" LIMIT 1`;
+  console.log(data); // {userid : 'd'}
   conn.query(sql, (err, rows) => {
     if (err) {
       throw err;
     }
+    // console.log("rows", rows); //[ RowDataPacket { id: 5, userid: 'd', name: 'd', pw: 'd' } ]
     cb(rows);
   });
 };
 
 //** 프로필 - 회원정보 수정
 exports.editPro = (data, cb) => {
-  console.log("data | editPro | User.js []", data);
+  console.log("data | editPro | User.js ", data);
   conn.query(
-    `ALTER TABLE user SET username="${data.nickname}",pw="${data.pw}" WHERE id="${data.id}"`
+    `UPDATE user SET name="${data.nickname}",pw="${data.pw}"  WHERE userid="${data.userid}" `
   ),
     (err, row) => {
       if (err) {
         throw err;
       } else {
+        console.log(row);
         cb(row);
       }
     };

@@ -53,6 +53,21 @@
       alt="?"
     />
 
+    <h1>OPEN API를 활용한 영화정보 가져오기!</h1>
+    <div class="res">
+      <img src="" alt="" class="pst" /> <br />
+      <b>제목</b>
+      <div class="title"></div>
+      <br />
+      <b>개봉 연도</b>
+      <div class="year"></div>
+      <br />
+      <b>수상 이력</b>
+      <div class="awd"></div>
+      <br />
+    </div>
+    <button onclick="getMov()">영화 정보 가져오기</button>
+
     <hr />
     <h1>실습2</h1>
     <a href="/pr_rgstr">axios GET 회원가입</a>
@@ -294,6 +309,31 @@
         const { data } = catImgInfo;
         img.src = data[0].url; //img 태그의 src 속성을 open api에서 받아온 랜덤 이미지 주소로 변경
         // 분해 할당 대신 => img.src=catImgInfo.data[0].url;
+      }
+
+      //영화 정보 가져오기
+      const res = document.querySelector(".res");
+      const title = document.querySelector(".title");
+      const year = document.querySelector(".year");
+      const awd = document.querySelector(".awd");
+      const pst = document.querySelector(".pst");
+
+      async function getMov() {
+        const rec = await axios({
+          method: "get",
+          url: `http://www.omdbapi.com/`,
+
+          params: {
+            apikey: "78ac26f",
+            t: "titanic",
+          },
+        });
+        console.log("rec ", rec);
+        console.log("rec ", rec.data);
+        title.innerText = rec.data.Title;
+        year.innerText = rec.data.Year;
+        awd.innerText = rec.data.Awards;
+        pst.src = rec.data.Poster;
       }
 
       /*function ajaxGetOnInput() { //input에 대해 oninput test를 위한 함수

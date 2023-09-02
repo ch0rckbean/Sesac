@@ -85,7 +85,7 @@
       myModal.show();
 
       // 서버에서 render 할 때 두번째 인자로 보내는 popup 키에 대한 데이터
-      console.log("popup >> ", "<%= popup %>");
+      console.log("popup >> ", "<%= popup %>"); //hide
 
       // checkbox.checked === true (체크시); ''
       // checkbox.checked === false (미체크시); 'hide'
@@ -93,7 +93,7 @@
       checkbox.checked ? myModal.hide() : myModal.show();
 
       // TODO: popup 쿠키 값이 ''이라면, 모달 보여주기
-      // if (popup == '') {
+      // if (popup == "") {
       //   myModal.show();
       // }
 
@@ -106,6 +106,7 @@
             method: "POST",
             url: "/setCookie",
             // data:  오늘 동안 안 본다는 내용
+            data: checkbox.checked,
           });
         }
 

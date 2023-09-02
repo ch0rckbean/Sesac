@@ -6,13 +6,15 @@ const PORT = 8000;
 app.set("view engine", "ejs");
 
 //미들웨어 등록
-// app.use(cookieParser()); // 일반 쿠키
+// - 일반 쿠키
+// app.use(cookieParser());
 
+// - 암호화 쿠키
 const COOKIE_SECRET_KEY = "secretKey";
-app.use(cookieParser(COOKIE_SECRET_KEY)); //암호화 쿠키
+app.use(cookieParser(COOKIE_SECRET_KEY));
 
 const myCookieConf = {
-  // httpOnly: 웹 서버를 통해서만 크키 접근 가능 (프론트에서 document.cookie로 접근을 차단)
+  // httpOnly: 웹 서버를 통해서만 쿠키 접근 가능 (프론트에서 document.cookie로 접근을 차단)
   // maxAge: 쿠키 수명 (단위 ms)
   // expires: 만료 날짜를 GMT시간설정
   // path: 해당 디렉토리와 하위 디렉토리에서만 경로가 활성화되고 웹 브라우저는 해당하는 쿠키만 웹 서버에 전송
@@ -36,8 +38,9 @@ app.get("/setCookie", (req, res) => {
 });
 
 app.get("/getCookie", (req, res) => {
+  //일반 쿠키일 때만 값이 표시 됨
   //   res.send(req.cookies); //일반 쿠키
-  // res.send(req.signedCookies) //암호화 쿠키
+  res.send(req.signedCookies); //암호화 쿠키
 });
 
 app.get("/clearCookie", (req, res) => {

@@ -40,7 +40,7 @@ exports.postPlayer = async (req, res) => {
     });
     res.send(newPlayer);
   } catch (err) {
-    console.log(er);
+    console.log(err);
     res.send("Internal Server Error");
   }
 };

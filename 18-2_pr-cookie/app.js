@@ -17,12 +17,11 @@ app.use(cookieParser());
 let tomorrow = new Date(); //오늘이 구해짐
 tomorrow.setDate(tomorrow.getDate() + 1); //하루 뒤로 날짜 설정
 console.log("tmr", tomorrow);
-console.log("tmr2", tomorrow.toGMTString());
 
 const popupConf = {
   httpOnly: true,
-  Expires: tomorrow.toGMTString(),
-  // maxage: 24 * 60 * 60 * 1000, //1day
+  // Expires: tomorrow.toGMTString(),
+  maxAge: 24 * 60 * 60 * 1000, //1day
   // signed: true,
 };
 app.get("/", (req, res) => {

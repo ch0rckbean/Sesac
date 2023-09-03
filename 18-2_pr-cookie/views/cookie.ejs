@@ -82,7 +82,7 @@
 
       const myModal = new bootstrap.Modal("#exampleModal");
       // console.log(myModal); // _element: div#exampleModal.modal.fade
-      myModal.show();
+      //myModal.show(); //이거 왜 썼니...
 
       // 서버에서 render 할 때 두번째 인자로 보내는 popup 키에 대한 데이터
       console.log("popup >> ", "<%= popup %>"); //hide
@@ -105,11 +105,12 @@
           axios({
             method: "POST",
             url: "/setCookie",
-            data: { popup: "hide" },
           }).then((res) => {
             // 2. js로 모달 닫기 수행 (위 참고 링크 확인)
             myModal.hide();
           });
+        } else {
+          myModal.hide();
         }
       }
     </script>

@@ -25,7 +25,7 @@ const User = (Sequelize, DataTypes) => {
     {
       tableNAme: "user",
       freezeTableName: true,
-      timestamps: true,
+      timestamps: false,
     }
   );
   return model;

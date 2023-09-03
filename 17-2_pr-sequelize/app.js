@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 8001;
+const db = require("./models"); //추가하기
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -20,6 +21,8 @@ app.get("*", (req, res) => {
   res.render("404");
 });
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
-});
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}`);
+  });
+}); // 추가하기

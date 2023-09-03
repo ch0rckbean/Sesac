@@ -4,7 +4,7 @@ const conn = mysql.createConnection({
   host: "localhost",
   user: "user",
   password: "1234",
-  database: "kdt",
+  database: "sesac",
 });
 
 exports.postSignup = (data, cb) => {
@@ -13,7 +13,6 @@ exports.postSignup = (data, cb) => {
     if (err) {
       throw err;
     }
-
     cb();
   });
 };
@@ -24,7 +23,6 @@ exports.postSignin = (data, cb) => {
     if (err) {
       throw err;
     }
-
     cb(rows);
   });
 };

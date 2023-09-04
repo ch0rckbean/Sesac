@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>회원가입, 로그인, 회원정보수정 실습(with. Session)</h1>
+    <%if (isLogin) { %>
+    <h3>000님 환영합니다.</h3>
+    <% } else {%>
+    <h3>아직 로그인을 하지 않으셨군요.</h3>
+    <% } %>
+    <a href="/register">회원가입</a>
+    <a href="/login">로그인</a>
+    <a href="/all">전체회원</a>
+    <%if (isLogin) { %>
+    <a href="/myProfile">내 프로필</a>
+    <% } %>
+  </body>
+</html>

@@ -55,13 +55,10 @@ app.get("/destroy", (req, res) => {
       console.log(err);
       return;
     }
+
     // res.redirect(주소) : 주소로 이동(리다이렉트)
     res.redirect("/name"); //세션 확인
   });
-});
-
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
 });
 
 // 세션 정리

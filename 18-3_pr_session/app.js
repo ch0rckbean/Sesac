@@ -50,7 +50,7 @@ app.post("/login", (req, res) => {
   req.session.user = id;
   if ((id == userInfo.id) & (pw == userInfo.pw)) {
     req.session.user = id;
-    res.render("index", { isLogin: true });
+    res.render("index", { isLogin: true, id: id });
   } else {
     res.send(
       `<script>alert("로그인 실패"); document.location.href="/"</script>`

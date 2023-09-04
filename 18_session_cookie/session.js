@@ -2,11 +2,13 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const PORT = 8080;
+const dotenv = require("dotenv");
 
+dotenv.config();
 app.set("view engine", "ejs");
 app.use(
   session({
-    secret: "MySessionSecretKey",
+    secret: process.env.SECRET_KEY_SESSION,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -21,6 +23,7 @@ app.use(
 // saveUninitialized: 세션에 저장할 내역이 없더라도 처음부터 세션을 생성할 지 설정
 // httpOnly: http 프로토콜에서도 세션 사용 가능
 // maxAge: 쿠키 수명(단위 ms)
+console.log(process.env.SECRET_KEY_SESSION);
 
 app.get("/", (req, res) => {
   res.render("session");
@@ -70,3 +73,6 @@ app.get("/destroy", (req, res) => {
 
 // 3. 세션 삭제
 // req.session.destroy(콜백)
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`);
+});

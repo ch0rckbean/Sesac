@@ -1,8 +1,10 @@
 // TODO: User 모델 모듈 불러오기
 // TODO: bcrypt 패키지 불러오기
+const { User } = require("../models");
 
 exports.index = (req, res) => {
   // index.ejs 랜더 (data 키로 session 객체의 userInfo 전달)
+  res.render("index", { data: req.session.userInfo });
 };
 
 exports.getRegister = (req, res) => {

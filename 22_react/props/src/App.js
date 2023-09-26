@@ -1,35 +1,35 @@
-import './App.css';
-import ClassComponent from './ClassComponent';
-import FuncComponent from './FuncComponent';
 import Button from './Button';
-import Foood from './Food';
+import './App.css';
+import ClassComponent from './ClassComponenet';
+import FuncComponent from './FuncComponent';
+import Food from './Food';
 import Book from './Book';
-import ClassComp from './pr-classComp';
-function msg() {
+import Text from './Text';
+
+function txt() {
   console.log('콘솔 띄우기 성공!');
 }
+
 function App() {
   return (
     <div className='App'>
-      <FuncComponent name='지구' />
-      <FuncComponent />
-      <hr />
-      <ClassComponent name='화성' />
+      <ClassComponent name='목성' />
       <ClassComponent />
-      <hr />
-      <Button link='http://www.google.com'>Google</Button>
+      <hr></hr>
+      <FuncComponent name='화성' />
+      <FuncComponent />
+      <Button link='http://www.google.com' children='구글' />
 
       <h1>실습</h1>
-      <Foood whichFood='떡볶이' />
-      <Foood />
+      <Food whichFood='떡볶이' />
+      <Food />
       <Book
-        title='난 토마토 절대 안 먹어!'
-        author='로렌 차일드'
+        title='난 토마토 절대 안 먹어'
+        author='ABC'
         price='9000'
-        type='동화책'
+        type='동화'
       />
-      <ClassComp text='text props' valid={msg} />
-      <ClassComp valid={msg} />
+      {/* <Text text='App에서 넘긴 text' valid={txt} /> */}
     </div>
   );
 }

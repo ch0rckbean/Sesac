@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Result(props) {
   const { img, color, bgColor, text } = props;
   console.log(props);

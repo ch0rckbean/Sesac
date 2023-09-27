@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function Input() {
-  const [text, setText] = useState(" ");
   return (
     <>
       내용 :

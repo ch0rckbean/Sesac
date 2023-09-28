@@ -1,13 +1,14 @@
-function Input() {
+function Input(props) {
+  const { setText } = props;
   return (
     <>
       내용 :
       <input
-        type="text"
+        type='text'
         onChange={(e) => {
-          setText(e.target);
+          setText(e.target.value);
         }}
-        placeholder="내용을 입력하세요."
+        placeholder='내용을 입력하세요.'
       />
     </>
   );

@@ -28,7 +28,7 @@ export default function Alphabet() {
   const addAlpha = () => {
     console.log(inputAlpha, inputAlpha.length);
     // [퀴즈] input이 빈값이라면 alphabet 상태가 변경되지 않도록 하기
-    if (inputAlpha.length < 1) {
+    if (inputAlpha.trim().length < 1) {
       return;
     }
     const newAlpha = alphabet.concat({
@@ -37,6 +37,21 @@ export default function Alphabet() {
     });
     setAlphabet(newAlpha);
     setInputAlpha("");
+  };
+  const addEnterAlpha = (e) => {
+    if (e.nativeEvent.isComposing) {
+      return;
+    }
+
+    if (e.code === "Enter") {
+      addAlpha();
+    }
+  };
+  const deleteAlpha = (targetId) => {
+    //targetId: 삭제 대상
+    console.log(targetId);
+    const newAlpha = alphabet.filter((alpha) => alpha.id !== targetId);
+    setAlphabet(newAlpha);
   };
 
   return (
@@ -48,6 +63,8 @@ export default function Alphabet() {
         onChange={(e) => {
           setInputAlpha(e.target.value);
         }}
+        // [퀴즈] input에서 엔터 키 누르면 추가되도록
+        onKeyDown={(e) => addEnterAlpha(e)}
       />
       <button onClick={addAlpha}>ADD</button>
       <ol>
@@ -55,7 +72,11 @@ export default function Alphabet() {
           return <li key={idx}>{value}</li>;
         })} */}
         {alphabet.map((value) => {
-          return <li key={value.id}>{value.alpha}</li>;
+          return (
+            <li key={value.id} onDoubleClick={() => deleteAlpha(value.id)}>
+              {value.alpha}
+            </li>
+          );
         })}
       </ol>
     </div>

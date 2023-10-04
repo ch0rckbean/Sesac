@@ -1,30 +1,31 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export default function Alphabet() {
   //   const [alphabet, setAlphabet] = useState(["b", "a", "n", "a", "n", "a"]);
   const [alphabet, setAlphabet] = useState([
     {
       id: 1,
-      alpha: "a",
+      alpha: 'a',
     },
     {
       id: 2,
-      alpha: "p",
+      alpha: 'p',
     },
     {
       id: 3,
-      alpha: "p",
+      alpha: 'p',
     },
     {
       id: 4,
-      alpha: "l",
+      alpha: 'l',
     },
     {
       id: 5,
-      alpha: "e",
+      alpha: 'e',
     },
   ]);
-  const [inputAlpha, setInputAlpha] = useState("");
+  const [inputAlpha, setInputAlpha] = useState('');
+
   const addAlpha = () => {
     console.log(inputAlpha, inputAlpha.length);
     // [퀴즈] input이 빈값이라면 alphabet 상태가 변경되지 않도록 하기
@@ -36,20 +37,22 @@ export default function Alphabet() {
       alpha: inputAlpha,
     });
     setAlphabet(newAlpha);
-    setInputAlpha("");
+    setInputAlpha('');
   };
+
   const addEnterAlpha = (e) => {
     if (e.nativeEvent.isComposing) {
       return;
     }
 
-    if (e.code === "Enter") {
+    if (e.code === 'Enter') {
       addAlpha();
     }
   };
+
   const deleteAlpha = (targetId) => {
     //targetId: 삭제 대상
-    console.log(targetId);
+    // console.log(targetId);
     const newAlpha = alphabet.filter((alpha) => alpha.id !== targetId);
     setAlphabet(newAlpha);
   };
@@ -57,8 +60,8 @@ export default function Alphabet() {
   return (
     <div>
       <input
-        type="text"
-        placeholder="알파벳 입력"
+        type='text'
+        placeholder='알파벳 입력'
         value={inputAlpha}
         onChange={(e) => {
           setInputAlpha(e.target.value);

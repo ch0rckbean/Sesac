@@ -189,12 +189,21 @@ for (let key in me) {
 // reduce()
 // - 배열의 각 요소에 대해 주어진 리듀서 함수 실행, 하나의 결과값 반환
 
-// reduce((acc, cur) => { ... })
+// reduce((acc, cur) => { ... }, initvalue )
 // - acc: 누적되는 값
 // - cur: 현재 요소
 
 const numbers = [1, 2, 3, 4, 5];
+const initialValue = 100;
 const result = numbers.reduce((accumulator, currentValue) => {
   return accumulator + currentValue;
-});
+}, initialValue);
 console.log(result);
+
+// 여러 배열 합치는 방법
+// 1. concat()
+const arr_1 = [1, 2, 3];
+const arr_2 = [3, 4, 5];
+console.log(arr_1.concat(arr_2)); //[1,2,3,3,4,5]
+// 2. ...spread
+console.log([...arr_1, ...arr_2]);

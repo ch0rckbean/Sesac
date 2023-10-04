@@ -175,7 +175,6 @@ console.log(res1);
 let res2 = words.filter((e) => e.includes("a"));
 console.log(res2);
 
-// /////////////////////////////////
 //for in 반복문
 // 객체의 key를 반복할 수 있는 구문
 const me = {
@@ -186,3 +185,16 @@ const me = {
 for (let key in me) {
   console.log(key, me[key]); //key, value 출력
 }
+
+// reduce()
+// - 배열의 각 요소에 대해 주어진 리듀서 함수 실행, 하나의 결과값 반환
+
+// reduce((acc, cur) => { ... })
+// - acc: 누적되는 값
+// - cur: 현재 요소
+
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+});
+console.log(result);

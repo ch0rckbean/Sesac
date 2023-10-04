@@ -1,12 +1,17 @@
 function Result(props) {
   // const { img, color, bgColor, text } = props;
-  const { fruit, color, background, content } = props;
+  const { fruit, color, background, content } = props.data;
   console.log("props", props);
 
   return (
     <div style={{ display: "block" }}>
       {/* <img src={img} width={100} height={100} alt="img" /> */}
-      <img src={`${fruit}.png`} width={100} height={100} alt="img" />
+      <img
+        src={`allPractice/${fruit}.png`}
+        width={100}
+        height={100}
+        alt="img"
+      />
 
       <div
         // style={{

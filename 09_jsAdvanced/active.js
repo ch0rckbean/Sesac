@@ -2,7 +2,7 @@
 // 1. 배열 구조 분해 할당
 // - 배열 구조 분해 할당 시 "순서" 중요
 const arr1 = [1, 2, 3, 4, 5];
-const arr2 = ["a", "b", "c"];
+const arr2 = ['a', 'b', 'c'];
 
 const [one, two, three, four, five] = arr1;
 console.log(one, two, three, four, five);
@@ -12,13 +12,13 @@ console.log(A, B, C);
 
 let x = 1;
 let y = 3;
-console.log("Swap 전", x, y);
+console.log('Swap 전', x, y);
 //Swap
 [x, y] = [y, x];
-console.log("Swap 후", x, y);
+console.log('Swap 후', x, y);
 
-const lists = ["grape", "kiwi"];
-[f1, f2, f3 = "orange"] = lists;
+const lists = ['grape', 'kiwi'];
+[f1, f2, f3 = 'orange'] = lists;
 // console.log(f1,f2,f3) //undefined
 console.log(f1, f2, f3);
 
@@ -26,18 +26,18 @@ console.log(f1, f2, f3);
 // - 변수 선언 순서 중요 x
 // - 키 값과 변수명 일치해야 함
 const obj = {
-  title: "엘리멘탈",
-  content: "감동적이에요",
+  title: '엘리멘탈',
+  content: '감동적이에요',
   score: 1000000,
 };
 
 //객체 구조 분해 쓰지 않았을 때
 console.log(obj.title, obj.content, obj.score);
-console.log(obj["title"], obj["content"], obj["score"]);
+console.log(obj['title'], obj['content'], obj['score']);
 
 //객체 구조 분해 쓰고 싶다면
 //key가 존재 x 때를 대비해'='연산자 사용하면 default값 할당
-const { score, title, content, star = "별 다섯개" } = obj;
+const { score, title, content, star = '별 다섯개' } = obj;
 console.log(title, content, score, star);
 
 //콜론(:)을 이용하면 새 변수명으로 바꿔서 저장할 수 있다.
@@ -55,9 +55,9 @@ function getInfo(lecture) {
 }
 
 const lectureInfo = {
-  name: "SESAC x CODINGOn",
-  part: "WEB",
-  leader: "Sean",
+  name: 'SESAC x CODINGOn',
+  part: 'WEB',
+  leader: 'Sean',
 };
 
 const result = getInfo(lectureInfo);
@@ -74,53 +74,53 @@ const b = [5, 4];
 console.log(...a, ...b);
 
 //spread in string
-const c = [..."Hello"]; //[ 'H', 'e', 'l', 'l', 'o' ]
-const d = "Hello".split(""); //[ 'H', 'e', 'l', 'l', 'o' ]
-const e = "Hello".split(" "); //[ 'Hello' ]
+const c = [...'Hello']; //[ 'H', 'e', 'l', 'l', 'o' ]
+const d = 'Hello'.split(''); //[ 'H', 'e', 'l', 'l', 'o' ]
+const e = 'Hello'.split(' '); //[ 'Hello' ]
 console.log(c);
 console.log(d);
 console.log(e);
 
 //spread in object
 const chip = {
-  base: "chip",
-  company: "mola",
+  base: 'chip',
+  company: 'mola',
 };
 const potatoChip = {
   //   base: "chip",
   //   company: "mola",
   ...chip,
-  flavor: "potato",
+  flavor: 'potato',
 };
 const chocoChip = {
   //   base: "chip",
   //   company: "mola",
   ...chip,
-  flavor: "choco",
+  flavor: 'choco',
 };
 console.log(chip);
 console.log(potatoChip);
 console.log(chocoChip);
 
 //퀴즈 : 두 문자열 합쳐서 배열로 만들기
-const world1 = "abc";
-const world2 = "xyz";
+const world1 = 'abc';
+const world2 = 'xyz';
 const res = [...world1, ...world2];
 console.log(res);
 
 const vals = [10, 20, 30, 40, 50, 60, 100];
 function get(a, b, ...rest) {
   //rest는 항상 마지막에 있어야 함
-  console.log("a: ", a); //10
-  console.log("b: ", b); //20
-  console.log("rest: ", rest); // [30,40,50,60,100]
+  console.log('a: ', a); //10
+  console.log('b: ', b); //20
+  console.log('rest: ', rest); // [30,40,50,60,100]
 }
 get(...vals);
 
 //2. 객체에서 rest
 const iceCream = {
-  company: "haetae",
-  flavor: "yogurt",
+  company: 'haetae',
+  flavor: 'yogurt',
   price: 1000,
 };
 const { flavor, ...rest } = iceCream;
@@ -166,8 +166,8 @@ class House {
   }
 }
 //클래스 이용해 객체 생성
-const house1 = new House(2023, "유엔빌리지", 5);
-console.log("house1", house1);
+const house1 = new House(2023, '유엔빌리지', 5);
+console.log('house1', house1);
 console.log(typeof house1);
 console.log(house1.year);
 console.log(house1.name);
@@ -175,7 +175,7 @@ house1.getWindow();
 house1.getAge();
 
 //house2 :2007년에 지어진 "자이"고 창문 10개
-const house2 = new House(2007, "자이", 10);
+const house2 = new House(2007, '자이', 10);
 house2.getAge();
 house2.getWindow();
 
@@ -213,7 +213,7 @@ class Apartment extends House {
     return `${this.name}아파트의 ${this.window}개의 창문은 ${this.windowMaker} 회사에서 생산되었습니다.`;
   }
 }
-const apt1 = new Apartment(2022, "래미안", 13, 20, "kcc");
+const apt1 = new Apartment(2022, '래미안', 13, 20, 'kcc');
 console.log(apt1);
 console.log(apt1.getAptInfo());
 console.log(apt1.getWindow());
@@ -259,3 +259,38 @@ class Circle extends Shape {
 }
 const c1 = new Circle(3, 3, 3);
 console.log(c1.getArea());
+
+//////////////////////
+// 단축 평가
+// &&, ||
+
+// A && B : 두 개의 피연산자 모두 T면 T 반환
+// A || B : 두 개의 피연산자 중에서 하나만 T여도 T 반환
+
+console.log(true && true); //t
+console.log(false && true); //f
+
+console.log(true || true); //t
+console.log(false || true); //t
+
+const xx = 5;
+const yy = 7;
+
+//삼항 연산자 예시
+const result1 = xx > yy ? 'xx가 더 큼' : 'yy가 더 큼';
+
+// 단축평가(&&, 논리곱)
+const result2 = xx > yy && 'xx가 더 큼';
+console.log(result2); //false - 첫번째 데이터부터 False이므로
+
+const result3 = xx < yy && 'yy가 더 큼';
+console.log(result2); //yy가 더 큼 - 첫번째 데이터가 True이므로 끝까지 실행
+
+// 단축평가(||, 논리합)
+const result4 = xx || 100;
+console.log(result4); //5 - 5는 truthy이므로 바로 5 출력
+
+const nameEx = '홍길동';
+const nameEx2 = null;
+console.log(nameEx || '이름없음');
+console.log(nameEx2 || '이름없음');

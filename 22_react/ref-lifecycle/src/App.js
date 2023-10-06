@@ -1,7 +1,9 @@
-import RefSample1 from "./RefSample1";
-import RefSample2 from "./RefSample2";
-import RefSample3 from "./RefSample3";
-import RefSample4 from "./RefSample4";
+import RefSample1 from './RefSample1';
+import RefSample2 from './RefSample2';
+import RefSample3 from './RefSample3';
+import RefSample4 from './RefSample4';
+import LifeCycleFunc from './LifeCycleFunc';
+import LifeCycleClass from './LifeCycleClass';
 
 function App() {
   return (
@@ -23,6 +25,14 @@ function App() {
       <hr></hr>
       <br></br>
       <RefSample4 />
+
+      <hr></hr>
+      <br></br>
+      <LifeCycleFunc />
+
+      <hr></hr>
+      <br></br>
+      <LifeCycleClass />
     </div>
   );
 }

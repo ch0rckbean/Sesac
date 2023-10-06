@@ -37,6 +37,10 @@ export default function SolEvtEx2() {
   const searchComment = () => {
     const searchResult = comments.filter((cmt) => {
       // cmt: {writer: xxx, title: xxx}
+
+      // 검색창에 빈 값 입력해도 빈 문자열''을 include 하기 때문에
+      // 전체 comments 결과를 반환함
+
       if (!cmt[searchType].includes(search)) {
         // 검색 결과 없다면; null
         return null;

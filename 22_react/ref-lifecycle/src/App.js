@@ -5,10 +5,11 @@ import RefSample4 from './RefSample4';
 import LifeCycleFunc from './LifeCycleFunc';
 import LifeCycleClass from './LifeCycleClass';
 import PostList from './PostList';
+import TodoList from './TodoList';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       {/* 함수형 컴포넌트; userRef()로 DOM 요소에 직접 접근 */}
       <RefSample1 />
 
@@ -36,9 +37,14 @@ function App() {
       <LifeCycleClass />
 
       <hr></hr>
-      <h1>실습</h1>
+      <h1>실습1</h1>
       <br></br>
-      <PostList />
+      {/* <PostList /> */}
+
+      <hr></hr>
+      <h1>실습2</h1>
+      <br></br>
+      <TodoList />
     </div>
   );
 }

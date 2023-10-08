@@ -13,7 +13,7 @@ export default function UseCallbackEx() {
 
   // [after]
   // useCallback 훅으로 함수를 기억해서
-  // 컴포넌트가 리렌더링 되어도 , 의존성 배열에 있는 값이 바귀지 않는 한 기존 함수 재사용
+  // 컴포넌트가 리렌더링 되어도 , 의존성 배열에 있는 값이 바뀌지 않는 한 기존 함수 재사용
   const onChangeText = useCallback((e) => {
     setText(e.target.value);
   }, []);
@@ -21,7 +21,7 @@ export default function UseCallbackEx() {
   return (
     <>
       <h1>UseCallbackEx</h1>
-      <input type="text" onChange={onChangeText} />
+      <input type='text' onChange={onChangeText} />
       <div>작성한 값: {text || '없음'}</div>
     </>
   );

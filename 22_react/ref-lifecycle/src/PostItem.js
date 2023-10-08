@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function PostItem({ state }) {
   console.log(state);
   return (
-    <div className="Container">
+    <div className='Container'>
       {state.length < 1 ? (
         <h1>Loading...</h1>
       ) : (

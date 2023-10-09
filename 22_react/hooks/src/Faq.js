@@ -2,7 +2,11 @@ import React from 'react';
 import useToggle from './customHooks/useToggle';
 
 export default function Faq() {
-  const [isFaqOpen, setIsFaqOpen] = useToggle();
+  const [isFaqOpen, setIsFaqOpen] = useToggle(); //initValue=false
+  console.log(setIsFaqOpen);
+  // () => {
+  //   setValue(!value);
+  // };
   return (
     <>
       <h1>custom Hook (useToggle) </h1>

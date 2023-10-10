@@ -5,7 +5,6 @@ import RefSample4 from './RefSample4';
 import LifeCycleFunc from './LifeCycleFunc';
 import LifeCycleClass from './LifeCycleClass';
 import PostList from './PostList';
-import PostList2 from './PostList2';
 import TodoList from './TodoList';
 
 function App() {
@@ -40,8 +39,7 @@ function App() {
       <hr></hr>
       <h1>실습1</h1>
       <br></br>
-      {/* <PostList /> */}
-      <PostList2 />
+      <PostList />
 
       <hr></hr>
       <h1>실습2</h1>

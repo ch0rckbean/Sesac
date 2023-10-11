@@ -2,6 +2,9 @@ import './App.js';
 import CssModuleComponents from './CssModuleComponents.js';
 import SassComponent from './SassComponent.js';
 import StyledComponent from './styles/StyledComponent.js';
+// 실습
+import Caterpillar from './Caterpillar.js';
+import CircleAnimation from './CircleAnimation.js';
 
 function App() {
   return (
@@ -13,12 +16,14 @@ function App() {
       <SassComponent />
       <h2>StyledComponent</h2>
       <StyledComponent />
+
       <hr></hr>
       <br></br>
       <h1>실습</h1>
       <br></br>
-
+      <Caterpillar />
       <br></br>
+      <CircleAnimation />
     </div>
   );
 }

@@ -2,3 +2,32 @@
   width: $size;
   height: $size;
 }
+
+// 실습1
+@mixin circle($circleSize) {
+  width: $circleSize;
+  height: $circleSize;
+  border-radius: 50%;
+  position: absolute;
+}
+
+// 실습2
+@mixin anm-move() {
+  @keyframes move1 {
+    0% {
+      transform: translate(0, 300);
+    }
+    25% {
+      transform: translate(10, 300);
+    }
+    50% {
+      transform: translate(10, 310);
+    }
+    75% {
+      transform: translate(0, 310);
+    }
+    100% {
+      transform: translate(-10, 300);
+    }
+  }
+}

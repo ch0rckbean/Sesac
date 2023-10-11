@@ -1,0 +1,51 @@
+@import './variables.scss';
+@import './utils.scss';
+
+.container {
+  position: relative;
+
+  .eye1 {
+    background-color: $color-eye1;
+    @include circle(50px);
+    left: 100px;
+    top: 10px;
+
+    z-index: 2;
+  }
+  .eye2 {
+    background-color: $color-eye2;
+    @include circle(30px);
+    left: 110px;
+    top: 10px;
+    z-index: 3;
+  }
+  .head {
+    background-color: $color-head;
+    @include circle(100px);
+    left: 100px;
+  }
+  .body1 {
+    background-color: $color-body1;
+    @include circle(100px);
+    left: 170px;
+    top: 30px;
+  }
+  .body2 {
+    background-color: $color-body2;
+    @include circle(100px);
+    left: 220px;
+    top: 60px;
+  }
+  .body3 {
+    background-color: $color-body3;
+    @include circle(100px);
+    left: 300px;
+    top: 70px;
+  }
+  .tail {
+    background-color: $color-tale;
+    @include circle(100px);
+    left: 370px;
+    top: 60px;
+  }
+}

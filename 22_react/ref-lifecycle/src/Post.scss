@@ -1,0 +1,16 @@
+@import './_variables.scss';
+@import './_utils.scss';
+
+.title {
+  background-color: $title-color;
+  color: $st-color;
+}
+
+.container {
+  background-color: $bg-color;
+}
+
+.itemContainer {
+  background-color: $title-color;
+  border: 1px solid salmon;
+}

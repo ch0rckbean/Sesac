@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default function PostItem({ state }) {
-  console.log(state);
+  // console.log(state);
   return (
-    <div className='Container'>
+    <div className='itemContainer'>
       {state.length < 1 ? (
         <h1>Loading...</h1>
       ) : (

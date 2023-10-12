@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PostItem from './PostItem';
 import axios from 'axios';
+import './Post.scss';
 
 export default function PostList() {
   // const fakePosts = [
@@ -67,12 +68,15 @@ export default function PostList() {
     method: 'GET',
     url: 'https://jsonplaceholder.typicode.com/todos/',
   }).then((res) => {
-    console.log('res', res.data);
+    // console.log('res', res.data);
     setState(res.data);
   });
 
   return (
-    <div>
+    <div className='container'>
+      <div className='title'>
+        <h1>PostList</h1>
+      </div>
       <PostItem state={state} />
     </div>
   );

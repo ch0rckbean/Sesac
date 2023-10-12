@@ -5,10 +5,11 @@ import StyledComponent from './styles/StyledComponent.js';
 // 실습
 import Caterpillar from './Caterpillar.js';
 import CircleAnimation from './CircleAnimation.js';
+import Scenery from './Scenery.js';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <h1>React Style</h1>
       <h2>CSS Module</h2>
       <CssModuleComponents />
@@ -21,9 +22,11 @@ function App() {
       <br></br>
       <h1>실습</h1>
       <br></br>
-      <Caterpillar />
+      {/* <Caterpillar /> */}
       <br></br>
-      <CircleAnimation />
+      {/* <CircleAnimation /> */}
+      <br></br>
+      <Scenery />
     </div>
   );
 }

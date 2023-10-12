@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
 const StyledBox = styled.div`
   width: 100px;
   height: 100px;
-  background-color: ${(props) => props.bgColor || 'palegreen'};
+  background-color: ${(props) => props.bgcolor || 'palegreen'};
 
   &:hover {
     transform: translateY(-20px);
@@ -21,9 +21,9 @@ const StyledBox = styled.div`
 export default function StyledComponent() {
   return (
     <StyledContainer>
-      <StyledBox bgColor="red"></StyledBox>
-      <StyledBox bgColor="orange"></StyledBox>
-      <StyledBox bgColor="yellow"></StyledBox>
+      <StyledBox bgcolor='red'></StyledBox>
+      <StyledBox bgcolor='orange'></StyledBox>
+      <StyledBox bgcolor='yellow'></StyledBox>
       <StyledBox></StyledBox>
     </StyledContainer>
   );

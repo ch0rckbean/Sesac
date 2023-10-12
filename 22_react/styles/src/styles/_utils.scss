@@ -12,22 +12,29 @@
 }
 
 // 실습2
-@mixin anm-move() {
-  @keyframes move1 {
+@mixin anm-move($size) {
+  animation: move#{$size} 2s infinite;
+
+  @keyframes move#{$size} {
     0% {
-      transform: translate(0, 300);
+      top: 0;
+      left: 0;
     }
     25% {
-      transform: translate(10, 300);
+      top: 0;
+      left: $size;
     }
     50% {
-      transform: translate(10, 310);
+      top: $size;
+      left: $size;
     }
     75% {
-      transform: translate(0, 310);
+      top: $size;
+      left: 0px;
     }
     100% {
-      transform: translate(-10, 300);
+      top: 0px;
+      left: 0px;
     }
   }
 }

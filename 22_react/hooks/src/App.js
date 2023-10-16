@@ -7,11 +7,13 @@ import Login from './Components/Login';
 import useTitle from './customHooks/useTitle';
 import Faq from './Faq';
 import Color from './Color';
+// Hook-form
+import Form from './Components/react-hook-form/Form';
 
 function App() {
   useTitle('React Hooks 연습중입니당');
   return (
-    <div className='App'>
+    <div className="App">
       <UseMemoEx />
       <UseCallbackEx />
       <UseCallbackEx2 postId={7} />
@@ -19,6 +21,7 @@ function App() {
       <Login />
       <Faq />
       <Color />
+      <Form />
     </div>
   );
 }

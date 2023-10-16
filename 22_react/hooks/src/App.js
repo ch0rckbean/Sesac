@@ -9,6 +9,7 @@ import Faq from './Faq';
 import Color from './Color';
 // Hook-form
 import Form from './Components/react-hook-form/Form';
+import PrForm from './Components/react-hook-form/PrForm';
 
 function App() {
   useTitle('React Hooks 연습중입니당');
@@ -22,6 +23,7 @@ function App() {
       <Faq />
       <Color />
       <Form />
+      <PrForm />
     </div>
   );
 }

@@ -13,6 +13,7 @@ code {
 }
 .Main {
   background-color: aliceblue;
+  color: black;
 }
 .Main.Dark {
   background-color: black;

@@ -4,15 +4,16 @@ import PhotoItem from './PhotoItem';
 
 export default function PhotoList() {
   const [photos, setPhotos] = useState([]);
+  // getPhotos 함수 밖으로 data를 꺼내기 위한 useState 사용
 
   const getPhotos = async () => {
     const photoData = await axios.get(
       'https://jsonplaceholder.typicode.com/photos '
     );
     const { data } = photoData;
-    console.log('data', data);
+    // console.log('data', data);
     setPhotos(data);
-    console.log('photos', photos);
+    // console.log('photos', photos);
   };
 
   useEffect(() => {

@@ -19,7 +19,7 @@ export default function ProductdetailPage() {
       <button onClick={() => navigate(-1)}>뒤로가기</button>
       <button onClick={() => navigate('/')}>홈으로 이동하기</button>
       <ul>
-        {/* string에서 빼도 유연하기에 동작 */}
+        {/* string에서 빼도 js는 유연하기에 동작 */}
         <li>상품번호:{id} </li>
         <li>상품명:{name} </li>
         <li>판매자:{email} </li>

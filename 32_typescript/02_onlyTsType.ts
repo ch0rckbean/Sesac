@@ -69,3 +69,19 @@ let arrA: any[] = [1, true, 'string'];
 let arrB = [1, true, 'string'];
 console.log(typeof arrA, arrA);
 console.log(typeof arrB, arrB);
+
+//[선택 실습] enum 데이터 Cafe와 Auth에 대해서 console 데이터를 찍고 있다.
+// 각각 출력되는 값과 에러가 발생한다면 왜 에러가 발생하는지 이유 찾아보기
+enum Auth1 {
+  admin = 0,
+  user = 1,
+  guest = 2,
+}
+
+enum Cafe1 {
+  americano = '아메리카노',
+  latte = '카페라떼',
+}
+
+console.log(Auth1[1]); // 출력 가능
+console.log(Cafe1[1]); // 출력 불가능

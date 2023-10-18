@@ -63,3 +63,9 @@ let cookie: readonly [object, boolean] = [
   { flavor: 'green tea', price: 2900 },
   true,
 ];
+
+//[선택 실습] arrA와 arrB는 같은 결과가 출력된다. 차이가 무엇인지 생각 댓글로 달아보기!
+let arrA: any[] = [1, true, 'string'];
+let arrB = [1, true, 'string'];
+console.log(typeof arrA, arrA);
+console.log(typeof arrB, arrB);

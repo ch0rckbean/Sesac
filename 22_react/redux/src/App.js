@@ -9,39 +9,39 @@ function App() {
   return (
     <div className="App">
       <h1>Redux</h1>
-      <Box1 num={num} plus={plus} minus={minus} />
+      <Box1 number={number} plus={plus} minus={minus} />
     </div>
   );
 }
 
-const Box1 = ({ num, plus, minus }) => {
+const Box1 = ({ number, plus, minus }) => {
   return (
     <div className="Box">
-      <h2>Box1: {num}</h2>
-      <Box2 num={num} plus={plus} minus={minus} />
+      <h2>Box1: {number}</h2>
+      <Box2 number={number} plus={plus} minus={minus} />
     </div>
   );
 };
-const Box2 = ({ num, plus, minus }) => {
+const Box2 = ({ number, plus, minus }) => {
   return (
     <div className="Box">
       <h2>Box2</h2>
-      <Box3 num={num} plus={plus} minus={minus} />
+      <Box3 number={number} plus={plus} minus={minus} />
     </div>
   );
 };
-const Box3 = ({ num, plus, minus }) => {
+const Box3 = ({ number, plus, minus }) => {
   return (
     <div className="Box">
       <h2>Box3</h2>
-      <Box4 num={num} plus={plus} minus={minus} />
+      <Box4 number={number} plus={plus} minus={minus} />
     </div>
   );
 };
-const Box4 = ({ num, plus, minus }) => {
+const Box4 = ({ number, plus, minus }) => {
   return (
     <div className="Box">
-      <h2>Box4: {num}</h2>
+      <h2>Box4: {number}</h2>
 
       <button onClick={plus}>Plus</button>
       <button onClick={minus}>Minus</button>

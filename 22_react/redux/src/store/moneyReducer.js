@@ -18,9 +18,6 @@ const moneyReducer = (state = initialState, action) => {
     default:
       return state;
   }
-  if (state.money < 0) {
-    alert('잔액이 부족합니다!');
-  }
 };
 
 export default moneyReducer;

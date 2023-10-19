@@ -5,7 +5,7 @@ import Pr_Bank from '../Pr_Bank';
 export const MoneyContainer = () => {
   const dispatch = useDispatch();
   const money = useSelector((state) => state.money.money);
-  //   console.log('money', money);
+  // console.log('money1', money);
 
   return (
     <Pr_Bank

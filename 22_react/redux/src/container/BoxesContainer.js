@@ -12,8 +12,9 @@ export const Box3Container = () => {
   return <Box3 />;
 };
 export const Box4Container = () => {
-  const number = useSelector((state) => state.counter.number);
   const dispatch = useDispatch();
+  const number = useSelector((state) => state.counter.number);
+
   return (
     <Box4
       number={number}

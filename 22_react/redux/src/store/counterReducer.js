@@ -6,7 +6,7 @@ const funcA = () => 'hi';
 const funcB = () => {
   return {};
 };
-const funcC = () => ({});
+const funcC = () => ({}); //객체 반환 시 ( ) 괄호 필요
 
 //plus(), minus()
 // - 나중에 컴포넌트에서 액션 쉽게 발생시킬 수 있도록

@@ -5,13 +5,12 @@ import ReactDOM from 'react-dom/client';
 // import App3 from './App3';
 import App4 from './App4';
 import rootReducer from './store';
+import Pr_Bank from './Pr_Bank';
 
 // redux
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { composeWithDevTools } from 'redux-devtools-extension';
-
-import Pr_Bank from './Pr_Bank';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

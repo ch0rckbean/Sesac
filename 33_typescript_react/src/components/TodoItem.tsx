@@ -15,6 +15,7 @@ export default function TodoItem({ todo, toggleComplete }: Props) {
           type="checkbox"
           defaultChecked={todo.completed}
           onChange={() => toggleComplete(todo.id)} //인자 들어가기 때문에 () => 필요
+          // 바로 실행되는 것을 막음
         />
         {todo.text}
       </label>

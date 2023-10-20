@@ -70,3 +70,23 @@ const galaxy23: Phone<galaxyOption> = {
   option: { color: 'blue', isBuz: true },
 };
 console.log(galaxy23);
+
+//실습
+function sum1(x: number, y: number): void {
+  console.log(x + y);
+}
+sum1(5, 11);
+
+function sum2(): number {
+  return ()
+}
+console.log(sum2(1,2,3,4,10))
+
+function arrElement<T>(arr: T[], idx: number) {
+  if (idx > arr.length) {
+    return false;
+  } else {
+    return arr[idx];
+  }
+}
+console.log(arrElement<string>(['w,', 'ww'], 1));

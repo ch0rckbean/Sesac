@@ -84,4 +84,112 @@ enum Cafe1 {
 }
 
 console.log(Auth1[1]); // 출력 가능
-console.log(Cafe1[1]); // 출력 불가능
+// console.log(Cafe1[1]); // 출력 불가능
+
+////////////////////////////////
+//type & interface
+// 1. interface
+interface Student {
+  name: string;
+  isPassed: boolean;
+  // addr:string
+}
+const student1: Student = {
+  name: 'jinhe',
+  isPassed: true,
+  // addr:'seoul'
+};
+const student2: object = {
+  name: 'jinhe',
+  isPassed: true,
+};
+// interface 상속
+// A+, A, B, C, D, F
+// type Score = 'A+' | 'A' | 'B' | 'C' | 'D' | 'F';
+enum Score {
+  one = 'A+',
+  two = 'A',
+  thr = 'B',
+  fou = 'C',
+  fiv = 'D',
+  six = 'F',
+}
+
+interface BaseballClub extends Student {
+  // 자동으로 Student를 포함하고 있음
+  position: string;
+  height: number;
+  readonly backNumber?: number; //? : 있어도 되고 없어도 됨
+  [grade: number]: Score;
+}
+const otani: BaseballClub = {
+  name: 'Otani',
+  isPassed: true,
+  position: 'pitcher',
+  height: 193,
+  backNumber: 17,
+  // 1: 'A+', //학년: 점수
+  // 2:'NP' //error
+};
+
+otani.position = '투수';
+console.log(otani);
+otani['height'] = 200;
+console.log(otani['height']);
+// otani['backNumber']=13  //error
+
+// type vs.enum
+type Bp1 = 500 | 700 | 1000;
+enum Bp2 {
+  SM = 500,
+  MD = 700,
+  LG = 1000,
+}
+
+const width1: Bp1 = 500;
+const width2: Bp2 = Bp2.SM;
+
+// 교차 타입 : 두 개 이상의 타입을 합치는 것
+interface Toy {
+  name: string;
+  start(): void;
+}
+interface Car {
+  name: string;
+  color: string;
+  price: number;
+}
+
+type ToyCar = Toy & Car;
+const toyCar: ToyCar = {
+  name: 'tayo',
+  start() {
+    console.log('Go~');
+  },
+  color: 'lime',
+  price: 5000,
+};
+
+// 2. type
+type Gender = 'F' | 'M';
+type Person = {
+  name: string;
+  age?: number;
+  like?: string[];
+  gender: Gender;
+};
+let daniel: Person = {
+  name: 'daniel',
+  age: 20,
+  like: ['haerin', 'hani'],
+  gender: 'F', //Gender 타입에 선언된 값만 넣을 수 있음
+};
+
+// interface 실습
+interface Game {
+  title: string;
+  price: number;
+  desc?: string;
+  category: string;
+  platform: string;
+}

@@ -1,20 +1,24 @@
-import Pr_Bank from '../Pr_Bank';
 const ADD = 'money/ADD';
 const SUB = 'money/SUB';
 
-export const add = () => ({ type: ADD, payload: Pr_Bank.howMuch });
-export const sub = () => ({ type: SUB, payload: Pr_Bank.howMuch });
-
-const initialState = {
+export const add = (inputMoney) => ({
+  type: ADD,
+  payload: inputMoney,
+});
+export const sub = (inputMoney) => ({
+  type: SUB,
+  payload: inputMoney,
+});
+const initVal = {
   money: 0,
 };
 
-const moneyReducer = (state = initialState, action) => {
+const moneyReducer = (state = initVal, action) => {
   switch (action.type) {
     case ADD:
-      return { money: state.money + action.payload };
+      return { money: state.money + Number(action.payload) };
     case SUB:
-      return { money: state.money - action.payload };
+      return { money: state.money - Number(action.payload) };
     default:
       return state;
   }

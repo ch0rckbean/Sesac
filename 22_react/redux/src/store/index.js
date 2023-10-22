@@ -7,7 +7,7 @@ import moneyReducer from './moneyReducer';
 const rootReducer = combineReducers({
   counter: counterReducer,
   isVisible: isVisibleReducer,
-  money: moneyReducer,
+  bank: moneyReducer,
 });
 
 export default rootReducer;

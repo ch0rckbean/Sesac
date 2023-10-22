@@ -9,16 +9,18 @@ interface Props {
 
 export default function TodoItem({ todo, toggleComplete }: Props) {
   return (
-    <li>
-      <label>
-        <input
-          type="checkbox"
-          defaultChecked={todo.completed}
-          onChange={() => toggleComplete(todo.id)} //인자 들어가기 때문에 () => 필요
-          // 바로 실행되는 것을 막음
-        />
-        {todo.text}
-      </label>
-    </li>
+    //onChange: 인자 들어가기 때문에 () = 필요 // 바로 실행되는 것을 막음
+    <>
+      <li>
+        <label>
+          <input
+            type='checkbox'
+            defaultChecked={todo.completed}
+            onChange={() => toggleComplete(todo.id)}
+          />
+          {todo.text}
+        </label>
+      </li>
+    </>
   );
 }

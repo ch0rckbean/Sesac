@@ -77,10 +77,14 @@ function sum1(x: number, y: number): void {
 }
 sum1(5, 11);
 
-function sum2(): number {
-  return ()
+function sum2(...nArr: number[]): number {
+  let i = 0;
+  for (let s of nArr) {
+    i += s;
+  }
+  return i;
 }
-console.log(sum2(1,2,3,4,10))
+console.log('sum2: ', sum2(1, 2, 3, 4, 10));
 
 function arrElement<T>(arr: T[], idx: number) {
   if (idx > arr.length) {

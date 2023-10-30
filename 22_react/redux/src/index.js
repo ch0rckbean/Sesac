@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom/client';
 // import App3 from './App3';
 import App4 from './App4';
 import rootReducer from './store';
-import Pr_Bank from './Pr_Bank';
+import Bank from './Bank';
 
 // redux
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import OnOff from './OnOff';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,7 +23,8 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App4 />
-      <Pr_Bank />
+      <Bank />
+      <OnOff />
     </Provider>
   </React.StrictMode>
 );
